@@ -1,141 +1,152 @@
-import React from 'react';
-
-function App() {
-  const boardMembers = [
-    { title: "1. Vorsitzender / President", name: "[Name Hier]", lang: "DE/EN/FR" },
-    { title: "Schatzmeister / Treasurer", name: "[Name Hier]", lang: "DE/EN" },
-    { title: "Sekretär / Secretary", name: "[Name Hier]", lang: "DE/FR" },
-  ];
-
-  return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-yellow-200">
-      {/* Navigation */}
-      <nav className="bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center text-white font-bold shadow-inner">G</div>
-              <span className="text-xl font-bold tracking-tighter">
-                Grassland <span className="text-yellow-600 italic text-sm">Culture e.V.</span>
-              </span>
-            </div>
-            <div className="hidden md:flex space-x-6 items-center font-semibold text-xs uppercase tracking-widest">
-              <a href="#about" className="hover:text-green-600 transition">About</a>
-              <a href="#vorstand" className="hover:text-green-600 transition">Vorstand</a>
-              <a href="#registration" className="hover:text-green-600 transition">Mitgliedschaft</a>
-              <a href="#contact" className="hover:text-green-600 transition">Contact</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <header className="relative bg-[#052e16] py-32 px-4 overflow-hidden text-white">
-        <div className="max-w-7xl mx-auto relative z-10 text-center md:text-left">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1]">
-              Unity in <span className="text-yellow-400">Diversity.</span> <br />
-              <span className="text-red-500">L'union</span> fait la force.
-            </h1>
-            <p className="text-xl text-green-50/90 mb-10 max-w-2xl leading-relaxed italic">
-              "Connecting the roots of Cameroon with the heart of Germany." <br />
-              <span className="text-sm font-light mt-2 block">— Deutsch-Kamerunischer Kulturverein Grassland e.V.</span>
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <a href="#registration" className="bg-white text-green-900 px-8 py-4 rounded-2xl font-bold hover:bg-yellow-400 transition shadow-xl text-sm">
-                Become a Member / Devenir Membre
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="absolute top-0 right-0 w-1/4 h-full bg-red-600/10 blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 w-1/4 h-full bg-yellow-500/10 blur-[100px]"></div>
-      </header>
-
-      {/* Pillars Section */}
-      <section id="about" className="py-24 max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-12 border-b border-gray-100">
-          <div className="text-center p-6 bg-gray-50 rounded-3xl">
-            <div className="text-4xl mb-4">🇩🇪</div>
-            <h3 className="text-xl font-bold mb-2 uppercase tracking-tight text-green-800">Integration</h3>
-            <p className="text-gray-500 text-sm">Supporting the Cameroonian community in Berlin through cultural dialogue and networking.</p>
-          </div>
-          <div className="text-center p-6 bg-gray-50 rounded-3xl">
-            <div className="text-4xl mb-4">🇨🇲</div>
-            <h3 className="text-xl font-bold mb-2 uppercase tracking-tight text-green-800">Kulturerbe</h3>
-            <p className="text-gray-500 text-sm">Célébrer nos racines à travers la musique, la danse et les traditions du Grassland.</p>
-          </div>
-          <div className="text-center p-6 bg-gray-50 rounded-3xl">
-            <div className="text-4xl mb-4">🌍</div>
-            <h3 className="text-xl font-bold mb-2 uppercase tracking-tight text-green-800">Community</h3>
-            <p className="text-gray-500 text-sm">L'union fait la force — Building a strong bridge for future generations.</p>
-          </div>
-      </section>
-
-      {/* Vorstand / Board Section */}
-      <section id="vorstand" className="py-24 max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-black mb-4">Unser Vorstand / Our Board</h2>
-          <div className="w-24 h-1 bg-green-700 mx-auto"></div>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {boardMembers.map((member, i) => (
-            <div key={i} className="border border-gray-100 p-8 rounded-3xl text-center hover:shadow-lg transition">
-              <div className="w-16 h-16 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-400">
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-              </div>
-              <h4 className="font-bold text-lg">{member.name}</h4>
-              <p className="text-green-700 text-xs font-semibold uppercase tracking-wider mb-2">{member.title}</p>
-              <span className="text-[10px] bg-gray-100 px-2 py-1 rounded text-gray-500">{member.lang}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Map & Office Section */}
-      <section id="registration" className="py-24 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="rounded-3xl overflow-hidden shadow-2xl h-96 border-8 border-white">
-            <iframe 
-              title="Verein Location"
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }}
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2424.965446261545!2d13.349635777174661!3d52.56114133333346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a8517e4e11c5ad%3A0xc34a0280f33a88!2sAroser%20Allee%20110%2C%2013407%20Berlin!5e0!3m2!1sde!2sde!4v1714156000000!5m2!1sde!2sde"
-              allowFullScreen="" 
-              loading="lazy">
-            </iframe>
-          </div>
-          <div>
-            <span className="text-green-600 font-bold uppercase tracking-widest text-xs">Join Us / Mitgliedschaft</span>
-            <h2 className="text-4xl font-black mt-2 mb-6 text-gray-900">Get Involved</h2>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-              Help us grow the cultural bridge between Cameroon and Germany. Download our membership form and visit us at our Berlin office.
-            </p>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8">
-              <p className="text-gray-900 font-bold">Grassland e.V. Office</p>
-              <p className="text-gray-600 text-sm">Aroser Allee 110, 13407 Berlin</p>
-            </div>
-            <button className="bg-green-700 text-white px-10 py-4 rounded-2xl font-bold hover:bg-green-800 transition">
-              Download Form (PDF)
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer id="contact" className="bg-gray-900 text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h4 className="text-yellow-500 font-bold mb-4 uppercase tracking-widest text-xs italic underline decoration-red-600 underline-offset-8">Impressum</h4>
-          <p className="text-sm text-gray-400">Deutsch-Kamerunischer Kulturverein Grassland e.V.</p>
-          <p className="text-sm text-gray-400 mb-8">Amtsgericht Charlottenburg: VR 23156</p>
-          <div className="flex justify-center gap-6">
-             <a href="https://frankfru.com" className="text-xs border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition">frankfru.com</a>
-             <a href="https://github.com/chifru19" className="text-xs border border-white/20 px-4 py-2 rounded-full hover:bg-gray-700 transition">GitHub</a>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
+{
+  "name": "grassland-verein",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://chifru19.github.io/grassland-verein",
+  "author": {
+    "name": "Frank Fru",
+    "url": "https://frankfru.com",
+    "github": "https://github.com/chifru19",
+    "linkedin": "https://www.linkedin.com/in/frankfru/",
+    "email": "contact@frankfru.com"
+  },
+  "dependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^13.5.0",
+    "gh-pages": "^6.1.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "off",
+      "react-hooks/rules-of-hooks": "error"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/index.js",
+      "!src/reportWebVitals.js"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/node_modules/react-scripts/config/jest/babelTransform.js",
+      "^.+\\.css$": "<rootDir>/node_modules/react-scripts/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/node_modules/react-scripts/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.jsx",
+      "jsx",
+      "json",
+      "web.tsx",
+      "tsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ],
+    "resetMocks": true,
+    "verbose": true,
+    "notify": true,
+    "clearMocks": true,
+    "errorOnDeprecated": true,
+    "maxWorkers": "50%",
+    "testRunner": "jest-circus/runner"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      "@babel/plugin-syntax-jsx",
+      "@babel/plugin-proposal-private-property-in-object"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {
+        "config": "./tailwind.config.js"
+      },
+      "autoprefixer": {
+        "flexbox": "no-2009",
+        "grid": "autoplace"
+      },
+      "postcss-flexbugs-fixes": {},
+      "postcss-preset-env": {
+        "autoprefixer": {
+          "flexbox": "no-2009"
+        },
+        "stage": 3
+      },
+      "postcss-import": {},
+      "postcss-nested": {}
+    }
+  },
+  "description": "Digital platform for Deutsch-Kamerunischer Kulturverein Grassland e.V. Berlin.",
+  "license": "MIT",
+  "keywords": [
+    "Culture",
+    "Verein",
+    "Cameroon",
+    "Berlin",
+    "Grassland"
+  ]
 }
-
-export default App;
