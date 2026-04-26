@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/grassland-verein/static/css/main.3597a8d6.css",
+    "main.js": "/grassland-verein/static/js/main.bd1fa683.js",
+    "index.html": "/grassland-verein/index.html",
+    "main.3597a8d6.css.map": "/grassland-verein/static/css/main.3597a8d6.css.map",
+    "main.bd1fa683.js.map": "/grassland-verein/static/js/main.bd1fa683.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3597a8d6.css",
+    "static/js/main.bd1fa683.js"
+  ]
+}

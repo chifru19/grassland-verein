@@ -1,0 +1,17 @@
+name: Security Scan
+on: [push, pull_request]
+
+jobs:
+  checkov_scan:
+    runs-on: ubuntu-latest
+    name: Checkov Infrastructure Scan
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: .
+          framework: all
+          soft_fail: true # Logs security risks without stopping the build
