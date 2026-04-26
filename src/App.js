@@ -1,11 +1,10 @@
 import React from 'react';
 
 function App() {
-  const galleryImages = [
-    { title: "Kulturfest", category: "Tradition", color: "bg-green-200" },
-    { title: "Language Lab", category: "Éducation", color: "bg-yellow-200" },
-    { title: "Youth Meetup", category: "Communauté", color: "bg-red-200" },
-    { title: "Tanzgruppe", category: "Culture", color: "bg-green-300" },
+  const boardMembers = [
+    { title: "1. Vorsitzender / President", name: "[Name Hier]", lang: "DE/EN/FR" },
+    { title: "Schatzmeister / Treasurer", name: "[Name Hier]", lang: "DE/EN" },
+    { title: "Sekretär / Secretary", name: "[Name Hier]", lang: "DE/FR" },
   ];
 
   return (
@@ -22,7 +21,7 @@ function App() {
             </div>
             <div className="hidden md:flex space-x-6 items-center font-semibold text-xs uppercase tracking-widest">
               <a href="#about" className="hover:text-green-600 transition">About</a>
-              <a href="#galerie" className="hover:text-green-600 transition">Galerie</a>
+              <a href="#vorstand" className="hover:text-green-600 transition">Vorstand</a>
               <a href="#registration" className="hover:text-green-600 transition">Mitgliedschaft</a>
               <a href="#contact" className="hover:text-green-600 transition">Contact</a>
             </div>
@@ -43,7 +42,7 @@ function App() {
               <span className="text-sm font-light mt-2 block">— Deutsch-Kamerunischer Kulturverein Grassland e.V.</span>
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <a href="#registration" className="bg-white text-green-900 px-8 py-4 rounded-2xl font-bold hover:bg-yellow-400 transition shadow-xl">
+              <a href="#registration" className="bg-white text-green-900 px-8 py-4 rounded-2xl font-bold hover:bg-yellow-400 transition shadow-xl text-sm">
                 Become a Member / Devenir Membre
               </a>
             </div>
@@ -53,7 +52,7 @@ function App() {
         <div className="absolute bottom-0 left-0 w-1/4 h-full bg-yellow-500/10 blur-[100px]"></div>
       </header>
 
-      {/* Pillars of the Association */}
+      {/* Pillars Section */}
       <section id="about" className="py-24 max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-12 border-b border-gray-100">
           <div className="text-center p-6 bg-gray-50 rounded-3xl">
             <div className="text-4xl mb-4">🇩🇪</div>
@@ -72,30 +71,53 @@ function App() {
           </div>
       </section>
 
+      {/* Vorstand / Board Section */}
+      <section id="vorstand" className="py-24 max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-black mb-4">Unser Vorstand / Our Board</h2>
+          <div className="w-24 h-1 bg-green-700 mx-auto"></div>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {boardMembers.map((member, i) => (
+            <div key={i} className="border border-gray-100 p-8 rounded-3xl text-center hover:shadow-lg transition">
+              <div className="w-16 h-16 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-400">
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+              <h4 className="font-bold text-lg">{member.name}</h4>
+              <p className="text-green-700 text-xs font-semibold uppercase tracking-wider mb-2">{member.title}</p>
+              <span className="text-[10px] bg-gray-100 px-2 py-1 rounded text-gray-500">{member.lang}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Map & Office Section */}
-      <section className="py-24 px-4 bg-white">
+      <section id="registration" className="py-24 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="rounded-3xl overflow-hidden shadow-2xl h-96 border-8 border-gray-50">
+          <div className="rounded-3xl overflow-hidden shadow-2xl h-96 border-8 border-white">
             <iframe 
               title="Verein Location"
               width="100%" 
               height="100%" 
               style={{ border: 0 }}
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2424.965876352934!2d13.34963531589623!3d52.56113947982218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a853bc6e66014f%3A0x6e2c3a502787884!2sAroser%20Allee%20110%2C%2013407%20Berlin!5e0!3m2!1sen!2sde!4v1680000000000!5m2!1sen!2sde"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2424.965446261545!2d13.349635777174661!3d52.56114133333346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a8517e4e11c5ad%3A0xc34a0280f33a88!2sAroser%20Allee%20110%2C%2013407%20Berlin!5e0!3m2!1sde!2sde!4v1714156000000!5m2!1sde!2sde"
               allowFullScreen="" 
               loading="lazy">
             </iframe>
           </div>
           <div>
-            <span className="text-green-600 font-bold uppercase tracking-widest text-xs">Our Office / Unser Sitz</span>
-            <h2 className="text-4xl font-black mt-2 mb-6 text-gray-900 leading-tight">Visit us in <br/>Berlin-Reinickendorf</h2>
+            <span className="text-green-600 font-bold uppercase tracking-widest text-xs">Join Us / Mitgliedschaft</span>
+            <h2 className="text-4xl font-black mt-2 mb-6 text-gray-900">Get Involved</h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              Our headquarters is located at <strong>Aroser Allee 110</strong>. We welcome all members and friends of the association to join our regular cultural meetings.
+              Help us grow the cultural bridge between Cameroon and Germany. Download our membership form and visit us at our Berlin office.
             </p>
-            <div className="bg-yellow-50 p-6 rounded-2xl border-l-4 border-yellow-500">
-              <p className="text-yellow-800 font-bold">Grassland e.V. Office</p>
-              <p className="text-yellow-700">Aroser Allee 110, 13407 Berlin</p>
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8">
+              <p className="text-gray-900 font-bold">Grassland e.V. Office</p>
+              <p className="text-gray-600 text-sm">Aroser Allee 110, 13407 Berlin</p>
             </div>
+            <button className="bg-green-700 text-white px-10 py-4 rounded-2xl font-bold hover:bg-green-800 transition">
+              Download Form (PDF)
+            </button>
           </div>
         </div>
       </section>
