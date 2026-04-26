@@ -3,6 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://chifru19.github.io/grassland-verein",
+  "author": {
+    "name": "Frank Fru",
+    "url": "https://frankfru.com",
+    "github": "https://github.com/chifru19",
+    "linkedin": "https://www.linkedin.com/in/frankfru/",
+    "email": "contact@frankfru.com"
+  },
+  "description": "Digital platform for Deutsch-Kamerunischer Kulturverein Grassland e.V. Berlin.",
+  "license": "MIT",
+  "keywords": [
+    "Culture",
+    "Verein",
+    "Cameroon",
+    "Berlin",
+    "Grassland"
+  ],
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
@@ -22,17 +38,16 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "author": {
-    "name": "Frank Fru",
-    "url": "https://frankfru.com",
-    "github": "https://github.com/chifru19",
-    "linkedin": "https://www.linkedin.com/in/frankfru/"
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "off",
+      "react-hooks/rules-of-hooks": "error"
+    }
   },
   "browserslist": {
     "production": [
