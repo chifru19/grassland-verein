@@ -6,91 +6,69 @@ function App() {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    alert(`Thank you ${formData.name}! The President will review your registration for ${formData.interest}.`);
+    alert(`Merci / Thank you / Danke ${formData.name}!`);
   };
 
   return (
-    <div className="App" style={{ backgroundColor: '#fdfbf7', color: '#2c3e50', minHeight: '100vh' }}>
+    <div className="App" style={{ backgroundColor: '#fdfbf7', color: '#2c3e50', minHeight: '100vh', fontFamily: 'Arial, sans-serif' }}>
       
       {/* HERO SECTION */}
       <header style={{ backgroundColor: '#1b5e20', color: '#fff', padding: '60px 20px', textAlign: 'center', borderBottom: '8px solid #f9a825' }}>
-        <h1 style={{ fontSize: '3rem', margin: '0' }}>Grassland Verein e.V. Berlin</h1>
-        <p style={{ fontSize: '1.2rem', opacity: '0.9' }}>Preserving Heritage, Building Community | Culture – Dance – Future</p>
+        <h1 style={{ fontSize: '2.5rem', margin: '0' }}>Deutsch-Kamerunischer Kulturverein Grassland e.V.</h1>
+        <p style={{ fontSize: '1.2rem', opacity: '0.9' }}>Culture – Dance – Community | Berlin</p>
       </header>
 
       <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
         
-        {/* NGOTEH DANCE GROUP */}
-        <section style={{ marginBottom: '60px' }}>
-          <h2 style={{ color: '#1b5e20', borderLeft: '10px solid #f9a825', paddingLeft: '15px' }}>Dance Group: Ngoteh</h2>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', alignItems: 'center' }}>
-            <div style={{ flex: '1', minWidth: '300px', background: '#fff', padding: '30px', borderRadius: '15px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
-              <p style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
-                The <strong>Ngoteh Dance Group</strong> is the heartbeat of our association. Representing the traditional rhythms of the Grassland region, Ngoteh brings the energy of our ancestors to Berlin through authentic costumes, drums, and movement.
-              </p>
-              <button style={{ backgroundColor: '#1b5e20', color: '#fff', border: 'none', padding: '10px 25px', borderRadius: '5px', cursor: 'pointer' }}>Book a Performance</button>
-            </div>
-            <div style={{ flex: '1', minWidth: '300px', height: '250px', backgroundColor: '#e0e0e0', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ color: '#666' }}></span>
-            </div>
+        {/* TRILINGUAL INTRODUCTION */}
+        <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginBottom: '50px' }}>
+          <div style={{ background: '#fff', padding: '20px', borderRadius: '10px', borderTop: '5px solid #de0000', boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}>
+            <h3 style={{ color: '#de0000' }}>Deutsch</h3>
+            <p>Förderung der deutsch-kamerunischen Kultur und Zusammenarbeit in Berlin. Erhaltung des kulturellen Erbes der Grassland-Region.</p>
+          </div>
+          <div style={{ background: '#fff', padding: '20px', borderRadius: '10px', borderTop: '5px solid #002366', boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}>
+            <h3 style={{ color: '#002366' }}>English</h3>
+            <p>Promoting German-Cameroonian culture and cooperation in Berlin. Preserving the cultural heritage of the Grassland region.</p>
+          </div>
+          <div style={{ background: '#fff', padding: '20px', borderRadius: '10px', borderTop: '5px solid #009b3a', boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}>
+            <h3 style={{ color: '#009b3a' }}>Français</h3>
+            <p>Promotion de la culture et de la coopération germano-camerounaise à Berlin. Préservation du patrimoine culturel de la région de Grassland.</p>
           </div>
         </section>
 
-        {/* KIDS ACTIVITIES */}
-        <section style={{ marginBottom: '60px', backgroundColor: '#fffbe6', padding: '40px', borderRadius: '20px' }}>
-          <h2 style={{ color: '#e65100' }}>Grassland Kids Corner</h2>
-          <p>We believe our culture lives on through our children. Our kids' program focuses on:</p>
-          <ul style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', listStyle: 'none', padding: 0 }}>
-            <li style={{ background: '#fff', padding: '15px', borderRadius: '10px' }}>🎨 Traditional Arts & Crafts</li>
-            <li style={{ background: '#fff', padding: '15px', borderRadius: '10px' }}>🥁 Introduction to Drumming</li>
-            <li style={{ background: '#fff', padding: '15px', borderRadius: '10px' }}>🌍 Language & Storytelling</li>
-            <li style={{ background: '#fff', padding: '15px', borderRadius: '10px' }}>⚽ Community Youth Sports</li>
-          </ul>
-        </section>
+        {/* NGOTEH & KIDS */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', marginBottom: '50px' }}>
+          <section style={{ background: '#fff', padding: '30px', borderRadius: '15px', borderLeft: '8px solid #1b5e20' }}>
+            <h2 style={{ color: '#1b5e20' }}>Dance Group: Ngoteh</h2>
+            <p>Representing traditional rhythms and authentic costumes of the Grassland region in the heart of Berlin.</p>
+          </section>
+          <section style={{ background: '#fffbe6', padding: '30px', borderRadius: '15px', borderLeft: '8px solid #f9a825' }}>
+            <h2 style={{ color: '#e65100' }}>Kids Activities</h2>
+            <p>Educational programs, language storytelling, and traditional arts for the next generation.</p>
+          </section>
+        </div>
 
-        {/* GALLERY PLACEHOLDER */}
-        <section style={{ marginBottom: '60px' }}>
-          <h2 style={{ color: '#1b5e20' }}>Cultural Gallery</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px' }}>
-            {[1, 2, 3, 4].map(i => (
-              <div key={i} style={{ aspectRatio: '1/1', backgroundColor: '#d7ccc8', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#5d4037' }}>
-                Event Photo {i}
-              </div>
-            ))}
-          </div>
+        {/* REGISTRY INFO */}
+        <section style={{ background: '#eee', padding: '20px', borderRadius: '10px', textAlign: 'center', marginBottom: '50px' }}>
+          <p><strong>Registry:</strong> Amtsgericht Charlottenburg | <strong>VR 23156</strong> | <strong>Founded:</strong> 05.02.2004</p>
+          <p>Aroser Allee 110, 13407 Berlin</p>
         </section>
 
         {/* REGISTRATION FORM */}
-        <section id="register" style={{ backgroundColor: '#4e342e', color: '#fff', padding: '50px', borderRadius: '20px', textAlign: 'center' }}>
-          <h2>Become a Member</h2>
-          <p>Join the Deutsch-Kamerunischer Kulturverein Grassland e.V. today.</p>
-          <form onSubmit={handleRegister} style={{ display: 'flex', flexDirection: 'column', maxWidth: '400px', margin: '30px auto', gap: '15px' }}>
-            <input type="text" placeholder="Full Name" required style={{ padding: '12px', borderRadius: '5px', border: 'none' }} 
-              onChange={(e) => setFormData({...formData, name: e.target.value})} />
-            <input type="email" placeholder="Email Address" required style={{ padding: '12px', borderRadius: '5px', border: 'none' }} />
-            <select style={{ padding: '12px', borderRadius: '5px', border: 'none' }}
-              onChange={(e) => setFormData({...formData, interest: e.target.value})}>
-              <option value="General">General Membership</option>
-              <option value="Ngoteh">Join Ngoteh Dance Group</option>
-              <option value="Kids">Kids Activities Volunteer</option>
-            </select>
-            <button type="submit" style={{ backgroundColor: '#f9a825', color: '#4e342e', fontWeight: 'bold', border: 'none', padding: '15px', borderRadius: '5px', cursor: 'pointer' }}>
-              Submit Registration
-            </button>
+        <section style={{ backgroundColor: '#4e342e', color: '#fff', padding: '40px', borderRadius: '20px', textAlign: 'center' }}>
+          <h2>Join Us / Rejoignez-nous / Mitmachen</h2>
+          <form onSubmit={handleRegister} style={{ display: 'flex', flexDirection: 'column', maxWidth: '400px', margin: '20px auto', gap: '10px' }}>
+            <input type="text" placeholder="Name" required style={{ padding: '10px', borderRadius: '5px' }} />
+            <input type="email" placeholder="Email" required style={{ padding: '10px', borderRadius: '5px' }} />
+            <button type="submit" style={{ backgroundColor: '#f9a825', padding: '12px', border: 'none', borderRadius: '5px', fontWeight: 'bold', cursor: 'pointer' }}>Register Now</button>
           </form>
         </section>
 
       </main>
 
-      {/* FOOTER */}
-      <footer style={{ textAlign: 'center', padding: '40px', backgroundColor: '#f1f1f1', borderTop: '1px solid #ddd' }}>
-        <p>VR 23156 | Amtsgericht Charlottenburg</p>
-        <p><strong>Developed by Frank Fru</strong></p>
-        <div style={{ marginTop: '10px' }}>
-          <a href="https://frankfru.com" style={{ color: '#1b5e20', margin: '0 10px' }}>Website</a>
-          <a href="https://linkedin.com/in/frankfru" style={{ color: '#1b5e20', margin: '0 10px' }}>LinkedIn</a>
-        </div>
-      </footer>
+      <footer style={{ textAlign: 'center', padding: '30px', fontSize: '0.9rem' }}>
+        <p>Developed by Frank Fru | <a href="https://frankfru.com">frankfru.com</a></p>
+      </header>
     </div>
   );
 }
