@@ -8,6 +8,12 @@ function App() {
     { title: "Tanzgruppe", category: "Culture", color: "bg-green-300" },
   ];
 
+  const boardMembers = [
+    { name: "Name Hier", role: "1. Vorsitzender / President", lang: "DE/EN/FR" },
+    { name: "Name Hier", role: "Schatzmeister / Treasurer", lang: "DE/EN" },
+    { name: "Name Hier", role: "Schriftführer / Secretary", lang: "DE/FR" },
+  ];
+
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-yellow-200">
       {/* Navigation */}
@@ -21,9 +27,9 @@ function App() {
               </span>
             </div>
             <div className="hidden md:flex space-x-6 items-center font-semibold text-xs uppercase tracking-widest">
-              <a href="#about" className="hover:text-green-600 transition">Über uns / About</a>
-              <a href="#galerie" className="hover:text-green-600 transition">Galerie</a>
-              <a href="#registration" className="hover:text-green-600 transition">Registration</a>
+              <a href="#about" className="hover:text-green-600 transition">About</a>
+              <a href="#registration" className="hover:text-green-600 transition">Mitgliedschaft</a>
+              <a href="#team" className="hover:text-green-600 transition">Team</a>
               <a href="#contact" className="hover:text-green-600 transition">Contact</a>
             </div>
           </div>
@@ -34,134 +40,88 @@ function App() {
       <header className="relative bg-[#052e16] py-32 px-4 overflow-hidden text-white">
         <div className="max-w-7xl mx-auto relative z-10 text-center md:text-left">
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1] animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1]">
               Unity in <span className="text-yellow-400">Diversity.</span> <br />
               <span className="text-red-500">L'union</span> fait la force.
             </h1>
             <p className="text-xl text-green-50/90 mb-10 max-w-2xl leading-relaxed italic">
-              "Connecting the roots of Cameroon with the heart of Germany." <br />
-              <span className="text-sm font-light mt-2 block">— Deutsch-Kamerunischer Kulturverein Grassland e.V.</span>
+              "Connecting the roots of Cameroon with the heart of Germany."
             </p>
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <a href="#registration" className="bg-white text-green-900 px-8 py-4 rounded-2xl font-bold hover:bg-yellow-400 transition shadow-xl">
-                Join Us / Devenir Membre
-              </a>
-              <a href="#galerie" className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition">
-                Discover / Découvrir
-              </a>
-            </div>
           </div>
         </div>
         <div className="absolute top-0 right-0 w-1/4 h-full bg-red-600/10 blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 w-1/4 h-full bg-yellow-500/10 blur-[100px]"></div>
       </header>
 
-      {/* Registration & Bank Section */}
-      <section id="registration" className="py-24 bg-gray-50 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-gray-900 mb-4">Registration / Anmeldung</h2>
-            <div className="h-1 w-20 bg-red-600 mx-auto"></div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Step 1: Download */}
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
-              <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-6">01</div>
-              <h3 className="font-bold text-xl mb-4">Download Form</h3>
-              <p className="text-gray-500 text-sm mb-6">Laden Sie den offiziellen Mitgliedsantrag herunter (PDF).</p>
-              <a href="/membership-form.pdf" download className="w-full py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-black transition text-center">
-                Download PDF
-              </a>
-            </div>
-
-            {/* Step 2: Payment */}
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
-              <div className="w-12 h-12 bg-green-100 text-green-700 rounded-full flex items-center justify-center mb-6">02</div>
-              <h3 className="font-bold text-xl mb-4">Bank Details</h3>
-              <div className="text-left w-full space-y-2 text-sm bg-gray-50 p-4 rounded-xl border border-gray-100">
-                <p><strong>Bank:</strong> Berliner Sparkasse</p>
-                <p className="break-all font-mono"><strong>IBAN:</strong> DE89 1005 0000 XXXX XXXX XX</p>
-                <p className="text-[10px] text-gray-400 mt-2 italic">Ref: Membership + Your Name</p>
+      {/* Board Members Section */}
+      <section id="team" className="py-24 max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-black text-gray-900 mb-4">Unser Vorstand / Our Board</h2>
+          <p className="text-gray-500">Leadership dedicated to cultural exchange.</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {boardMembers.map((member, i) => (
+            <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 text-center hover:shadow-xl transition">
+              <div className="w-20 h-20 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center text-green-700 font-bold text-2xl">
+                {member.name.charAt(0)}
               </div>
-            </div>
-
-            {/* Step 3: Contact */}
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
-              <div className="w-12 h-12 bg-yellow-100 text-yellow-700 rounded-full flex items-center justify-center mb-6">03</div>
-              <h3 className="font-bold text-xl mb-4">Send & Confirm</h3>
-              <p className="text-gray-500 text-sm mb-2 italic">Aroser Allee 110, 13407 Berlin</p>
-              <p className="text-green-700 font-bold">kontakt@frankfru.com</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Three Pillars */}
-      <section id="about" className="py-24 max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-12">
-          <div className="text-center p-6">
-            <div className="text-4xl mb-4">🇩🇪</div>
-            <h3 className="text-xl font-bold mb-2">Integration</h3>
-            <p className="text-gray-500 text-sm">Unterstützung bei der Integration und Förderung des deutsch-kamerunischen Dialogs.</p>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl mb-4">🇨🇲</div>
-            <h3 className="text-xl font-bold mb-2">Héritage Culturel</h3>
-            <p className="text-gray-500 text-sm">Célébrer nos racines à travers la musique et les traditions du Grassland.</p>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl mb-4">🌍</div>
-            <h3 className="text-xl font-bold mb-2">Global Community</h3>
-            <p className="text-gray-500 text-sm">Empowering the youth and building a strong network for future generations.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery */}
-      <section id="galerie" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 text-center mb-16">
-          <h2 className="text-4xl font-black mb-4 uppercase">Galerie / Gallery</h2>
-          <div className="h-1 w-20 bg-red-600 mx-auto"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {galleryImages.map((img, i) => (
-            <div key={i} className="group relative overflow-hidden rounded-xl aspect-square shadow-md">
-              <div className={`w-full h-full ${img.color} transition-transform duration-700 group-hover:scale-110`}></div>
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-white font-bold tracking-widest">{img.title}</div>
+              <h3 className="font-bold text-lg">{member.name}</h3>
+              <p className="text-green-700 text-sm font-medium mb-2">{member.role}</p>
+              <span className="text-[10px] bg-gray-200 px-2 py-1 rounded text-gray-600 uppercase font-bold">{member.lang}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Multilingual Footer */}
-      <footer id="contact" className="bg-gray-900 text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 border-b border-white/10 pb-12">
+      {/* Registration Section */}
+      <section id="registration" className="py-24 bg-gray-50 px-4 border-y border-gray-100">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h4 className="text-yellow-500 font-bold mb-4 uppercase text-xs tracking-widest">Grassland e.V.</h4>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Aroser Allee 110, 13407 Berlin<br />
-              VR 23156 | Active since 2004
+            <h2 className="text-4xl font-black mb-6">Membership / Anmeldung</h2>
+            <p className="text-gray-600 mb-8">
+              Join the Deutsch-Kamerunischer Kulturverein Grassland e.V. and become part of our trilingual community in Berlin. 
+              Fill out the form and send it to our office.
             </p>
-          </div>
-          <div>
-            <h4 className="text-green-500 font-bold mb-4 uppercase text-xs tracking-widest">Quick Links</h4>
-            <ul className="text-gray-400 text-sm space-y-2">
-              <li><a href="#registration" className="hover:text-white transition">Become a Member</a></li>
-              <li><a href="https://frankfru.com" className="hover:text-white transition underline decoration-green-600">frankfru.com</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-red-500 font-bold mb-4 uppercase text-xs tracking-widest">Contact</h4>
-            <div className="flex space-x-4">
-               <a href="https://linkedin.com/in/frankfru" className="text-xs border border-white/20 px-3 py-2 rounded hover:bg-blue-600 transition">LinkedIn</a>
-               <a href="https://github.com/chifru19" className="text-xs border border-white/20 px-3 py-2 rounded hover:bg-gray-700 transition">GitHub</a>
+            <div className="space-y-4">
+              <div className="flex gap-4 items-start">
+                <div className="bg-green-700 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs flex-shrink-0 mt-1">1</div>
+                <p className="text-sm"><strong>Download:</strong> Get the PDF registration form.</p>
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="bg-green-700 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs flex-shrink-0 mt-1">2</div>
+                <p className="text-sm"><strong>Payment:</strong> Transfer membership fee (IBAN: DE89...)</p>
+              </div>
             </div>
+            <button className="mt-8 bg-green-700 text-white px-8 py-3 rounded-xl font-bold hover:bg-green-800 transition">
+              Download Membership PDF
+            </button>
+          </div>
+          
+          {/* Map Integration */}
+          <div className="rounded-3xl overflow-hidden shadow-2xl h-80 border-4 border-white">
+            <iframe 
+              title="Verein Location"
+              width="100%" 
+              height="100%" 
+              frameBorder="0" 
+              scrolling="no" 
+              marginHeight="0" 
+              marginWidth="0" 
+              src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Aroser%20Allee%20110,%2013407%20Berlin&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+            </iframe>
           </div>
         </div>
-        <p className="text-center text-[10px] text-gray-500 mt-8 tracking-widest uppercase">
-           Deutsch-Kamerunischer Kulturverein Grassland e.V. — Berlin 2026
-        </p>
+      </section>
+
+      {/* Footer */}
+      <footer id="contact" className="bg-gray-900 text-white py-16 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h4 className="text-yellow-500 font-bold mb-4 uppercase tracking-widest text-xs">Contact / Impressum</h4>
+          <p className="text-sm text-gray-400">Deutsch-Kamerunischer Kulturverein Grassland e.V.</p>
+          <p className="text-sm text-gray-400 mb-6">Aroser Allee 110, 13407 Berlin | VR 23156</p>
+          <div className="flex justify-center gap-4">
+             <a href="https://frankfru.com" className="text-xs border border-white/20 px-4 py-2 rounded hover:bg-white hover:text-black transition">frankfru.com</a>
+          </div>
+        </div>
       </footer>
     </div>
   );
