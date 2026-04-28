@@ -34,7 +34,7 @@ export default function App() {
     transition: '0.3s'
   };
 
-  // Mapping the 6 renamed community images moved to public/images
+  // Your renamed community images from public/images
   const galleryImages = [
     '/images/ngoteh-01.jpg',
     '/images/ngoteh-02.jpg',
@@ -47,16 +47,16 @@ export default function App() {
   return (
     <div className="App" style={{ backgroundColor: '#fdfbf7', color: '#2c3e50', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
       
-      {/* --- HERO / LOGO SECTION WITH NGOTEH BACKGROUND --- */}
+      {/* --- HERO / LOGO SECTION --- */}
       <header id="home" style={{ 
         position: 'relative',
-        background: `linear-gradient(rgba(27, 94, 32, 0.8), rgba(27, 94, 32, 0.8)), url('/images/ngoteh-event-01.jpg')`, 
+        background: `linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.85)), url('/images/ngoteh-event-01.jpg')`, 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         padding: '80px 20px', 
         textAlign: 'center', 
         color: 'white',
-        borderBottom: '6px solid #f9a825' 
+        borderBottom: '6px solid #1b5e20' 
       }}>
         <div style={{ marginBottom: '20px' }}>
           <img 
@@ -71,7 +71,7 @@ export default function App() {
             }} 
           />
         </div>
-        <h1 style={{ fontSize: '2.8rem', margin: '0', fontWeight: '800' }}>
+        <h1 style={{ fontSize: '3rem', margin: '0', fontWeight: '800' }}>
           Deutsch-Kamerunischer Grassland Kulturverein e.V.
         </h1>
         <p style={{ fontSize: '1.2rem', color: '#f9a825', marginTop: '10px', fontWeight: 'bold' }}>Sprengelstr. 15, 13353 Berlin</p>
@@ -106,12 +106,12 @@ export default function App() {
           <div style={{ background: '#fff', padding: '40px', borderRadius: '20px', boxShadow: '0 5px 20px rgba(0,0,0,0.05)', border: '1px solid #eee' }}>
             <h3 style={{ color: '#e65100', marginTop: 0 }}>Every Second Saturday of the Month</h3>
             <p style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
-              Our regular sessions take place at **Sprengelstr. 15, 13353 Berlin**. Join us for community dialogue and planning.
+              Our regular sessions take place at **Sprengelstr. 15, 13353 Berlin**. Join us for community dialogue and cultural preservation planning.
             </p>
           </div>
         </section>
 
-        {/* --- DYNAMIC GALLERY --- */}
+        {/* --- DYNAMIC EVENT GALLERY --- */}
         <section id="gallery" style={{ marginBottom: '100px', scrollMarginTop: '100px' }}>
           <h2 style={sectionHeaderStyle}>Event Gallery</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
@@ -119,8 +119,8 @@ export default function App() {
               <div key={idx} style={{ overflow: 'hidden', borderRadius: '15px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
                 <img 
                   src={src} 
-                  alt={`Community Event ${idx + 1}`} 
-                  style={{ width: '100%', display: 'block', transition: '0.3s' }} 
+                  alt={`Grassland Event ${idx + 1}`} 
+                  style={{ width: '100%', height: '250px', objectFit: 'cover', display: 'block' }} 
                 />
               </div>
             ))}
@@ -133,14 +133,14 @@ export default function App() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '40px' }}>
             <div style={{ background: '#fff', padding: '30px', borderRadius: '20px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
               <h3 style={{ color: '#1b5e20' }}>Dance & Performance</h3>
-              <p>Showcasing the traditional dance and drumming heritage of the Grassland highlands.</p>
+              <p>Showcasing the traditional dance and drumming heritage of the Grassland highlands. We aim to bring the rhythm of our ancestors to the Berlin cultural scene.</p>
             </div>
             
             <div style={{ backgroundColor: '#000', borderRadius: '20px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', boxShadow: '0 10px 25px rgba(0,0,0,0.3)' }}>
               <div style={{ textAlign: 'center' }}>
                 <p style={{ fontSize: '1.8rem' }}>🎥</p>
                 <p>Ngoteh Dance Group Video</p>
-                <p style={{ fontSize: '0.8rem', opacity: 0.6 }}>(Link your MP4 or YouTube here)</p>
+                <p style={{ fontSize: '0.8rem', opacity: 0.6 }}>(Coming Soon)</p>
               </div>
             </div>
           </div>
@@ -149,17 +149,17 @@ export default function App() {
         {/* --- KIDS CORNER --- */}
         <section id="kids" style={{ marginBottom: '100px', scrollMarginTop: '100px', backgroundColor: '#fffbe6', padding: '50px', borderRadius: '30px' }}>
           <h2 style={{ color: '#e65100', textAlign: 'center', fontSize: '2.5rem' }}>Grassland Kids Corner</h2>
-          <p style={{ textAlign: 'center', fontSize: '1.2rem' }}>Pass down storytelling, language, and arts to the next generation.</p>
+          <p style={{ textAlign: 'center', fontSize: '1.2rem' }}>Investing in the future by passing down storytelling, language, and cultural arts to the next generation of our community.</p>
         </section>
 
-        {/* --- SUPPORT / BANKING (QR REMOVED) --- */}
-        <section id="support" style={{ marginBottom: '100px', scrollMarginTop: '100px', backgroundColor: '#1b5e20', color: 'white', padding: '50px', borderRadius: '30px' }}>
-            <h2 style={{ color: '#f9a825', fontSize: '2.5rem', textAlign: 'center' }}>Support Our Mission</h2>
-            <div style={{ backgroundColor: 'rgba(255,255,255,0.1)', padding: '30px', borderRadius: '15px', marginTop: '30px', border: '1px solid rgba(255,255,255,0.2)', maxWidth: '600px', margin: '30px auto' }}>
-              <p style={{ fontSize: '1.4rem' }}><strong>Bank:</strong> BERLINER VOLKSBANK</p>
-              <p style={{ fontSize: '1.4rem' }}><strong>IBAN:</strong> DE27 1009 0000 7218 2980 06</p>
-              <p style={{ fontSize: '1.4rem' }}><strong>BIC:</strong> BEVODEBBXXX</p>
-            </div>
+        {/* --- SUPPORT / BANKING (TEXT ONLY) --- */}
+        <section id="support" style={{ marginBottom: '100px', scrollMarginTop: '100px', backgroundColor: '#1b5e20', color: 'white', padding: '60px', borderRadius: '30px', textAlign: 'center' }}>
+          <h2 style={{ color: '#f9a825', fontSize: '2.5rem' }}>Support Our Mission</h2>
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.1)', padding: '35px', borderRadius: '15px', border: '1px solid rgba(255,255,255,0.2)', display: 'inline-block', textAlign: 'left', marginTop: '20px' }}>
+            <p style={{ fontSize: '1.4rem' }}><strong>Bank:</strong> BERLINER VOLKSBANK</p>
+            <p style={{ fontSize: '1.4rem' }}><strong>IBAN:</strong> DE27 1009 0000 7218 2980 06</p>
+            <p style={{ fontSize: '1.4rem' }}><strong>BIC:</strong> BEVODEBBXXX</p>
+          </div>
         </section>
 
         {/* --- REGISTRATION --- */}
@@ -175,16 +175,17 @@ export default function App() {
           <div style={{ padding: '40px' }}>
             <h3>Registry Info</h3>
             <p><strong>Amtsgericht Charlottenburg (Berlin)</strong> | VR 23156</p>
-            <p>Infrastructure managed by Frank Fru</p>
+            <p>Infrastructure Architecture by <strong>Frank Fru</strong></p>
           </div>
         </section>
       </main>
 
-      <footer style={{ textAlign: 'center', padding: '60px', borderTop: '1px solid #ddd' }}>
-        <p>© 2026 Grassland Kulturverein e.V. Berlin</p>
-        <div style={{ marginTop: '10px' }}>
-          <a href="https://frankfru.com" style={{ margin: '0 10px', color: '#1b5e20' }}>frankfru.com</a> | 
-          <a href="https://github.com/chifru19" style={{ margin: '0 10px', color: '#1b5e20' }}>GitHub</a>
+      <footer style={{ textAlign: 'center', padding: '60px', borderTop: '1px solid #ddd', marginTop: '50px' }}>
+        <p>© 2026 Grassland Kulturverein e.V. Berlin. All Rights Reserved.</p>
+        <div style={{ marginTop: '15px' }}>
+          <a href="https://frankfru.com" target="_blank" rel="noreferrer" style={{ margin: '0 10px', color: '#1b5e20', textDecoration: 'none', fontWeight: '600' }}>frankfru.com</a> | 
+          <a href="https://github.com/chifru19" target="_blank" rel="noreferrer" style={{ margin: '0 10px', color: '#1b5e20', textDecoration: 'none', fontWeight: '600' }}>GitHub</a> | 
+          <a href="https://linkedin.com/in/frankfru" target="_blank" rel="noreferrer" style={{ margin: '0 10px', color: '#1b5e20', textDecoration: 'none', fontWeight: '600' }}>LinkedIn</a>
         </div>
       </footer>
     </div>
