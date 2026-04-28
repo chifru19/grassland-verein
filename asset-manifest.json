@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/grassland-verein/static/css/main.87592b87.css",
-    "main.js": "/grassland-verein/static/js/main.956fb457.js",
+    "main.css": "/grassland-verein/static/css/main.8d06849d.css",
+    "main.js": "/grassland-verein/static/js/main.e414ec4d.js",
     "index.html": "/grassland-verein/index.html",
-    "main.87592b87.css.map": "/grassland-verein/static/css/main.87592b87.css.map",
-    "main.956fb457.js.map": "/grassland-verein/static/js/main.956fb457.js.map"
+    "main.8d06849d.css.map": "/grassland-verein/static/css/main.8d06849d.css.map",
+    "main.e414ec4d.js.map": "/grassland-verein/static/js/main.e414ec4d.js.map"
   },
   "entrypoints": [
-    "static/css/main.87592b87.css",
-    "static/js/main.956fb457.js"
+    "static/css/main.8d06849d.css",
+    "static/js/main.e414ec4d.js"
   ]
 }
