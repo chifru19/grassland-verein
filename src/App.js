@@ -132,7 +132,7 @@ export default function App() {
               <div key={idx} style={{ overflow: 'hidden', borderRadius: '15px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
                 <img 
                   src={src} 
-                  alt="Event" 
+                  alt="Grassland Event" 
                   style={{ width: '100%', height: '280px', objectFit: 'cover', display: 'block' }} 
                 />
               </div>
@@ -180,6 +180,10 @@ export default function App() {
 
       <footer style={{ textAlign: 'center', padding: '60px 20px', borderTop: '1px solid #eee' }}>
         <p>© 2026 Deutsch-Kamerunischer Kultur-Vereins. All Rights Reserved.</p>
+        <div style={{ marginTop: '10px' }}>
+          <a href="https://github.com/chifru19" target="_blank" rel="noreferrer" style={{ color: '#1b5e20', margin: '0 10px' }}>GitHub</a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ color: '#1b5e20', margin: '0 10px' }}>LinkedIn</a>
+        </div>
       </footer>
     </div>
   );
