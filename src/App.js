@@ -168,7 +168,7 @@ export default function App() {
           <h2 style={{ color: '#f9a825', fontSize: '3rem', marginBottom: '40px' }}>Support Our Mission</h2>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px' }}>
             <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '20px' }}>
-              <img src="images/qr-code.png" alt="Donate" style={{ width: '220px', height: '220px' }} />
+              <img src="images/qr-code.jpg" alt="Donate" style={{ width: '220px', height: '220px' }} />
               <p style={{ color: '#333', fontWeight: '800', marginTop: '15px' }}>SCAN TO DONATE</p>
             </div>
             <div style={{ fontSize: '1.4rem' }}>
