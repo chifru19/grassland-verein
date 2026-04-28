@@ -34,7 +34,7 @@ export default function App() {
     transition: '0.3s'
   };
 
-  // Your renamed community images from public/images
+  // Mapping the community images moved to public/images
   const galleryImages = [
     '/images/ngoteh-01.jpg',
     '/images/ngoteh-02.jpg',
@@ -47,7 +47,7 @@ export default function App() {
   return (
     <div className="App" style={{ backgroundColor: '#fdfbf7', color: '#2c3e50', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
       
-      {/* --- HERO / LOGO SECTION --- */}
+      {/* --- HERO / LOGO SECTION WITH NGOTEH BACKGROUND --- */}
       <header id="home" style={{ 
         position: 'relative',
         background: `linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.85)), url('/images/ngoteh-event-01.jpg')`, 
@@ -56,7 +56,7 @@ export default function App() {
         padding: '80px 20px', 
         textAlign: 'center', 
         color: 'white',
-        borderBottom: '6px solid #1b5e20' 
+        borderBottom: '6px solid #f9a825' 
       }}>
         <div style={{ marginBottom: '20px' }}>
           <img 
@@ -152,7 +152,7 @@ export default function App() {
           <p style={{ textAlign: 'center', fontSize: '1.2rem' }}>Investing in the future by passing down storytelling, language, and cultural arts to the next generation of our community.</p>
         </section>
 
-        {/* --- SUPPORT / BANKING (TEXT ONLY) --- */}
+        {/* --- SUPPORT / BANKING --- */}
         <section id="support" style={{ marginBottom: '100px', scrollMarginTop: '100px', backgroundColor: '#1b5e20', color: 'white', padding: '60px', borderRadius: '30px', textAlign: 'center' }}>
           <h2 style={{ color: '#f9a825', fontSize: '2.5rem' }}>Support Our Mission</h2>
           <div style={{ backgroundColor: 'rgba(255,255,255,0.1)', padding: '35px', borderRadius: '15px', border: '1px solid rgba(255,255,255,0.2)', display: 'inline-block', textAlign: 'left', marginTop: '20px' }}>
@@ -175,7 +175,7 @@ export default function App() {
           <div style={{ padding: '40px' }}>
             <h3>Registry Info</h3>
             <p><strong>Amtsgericht Charlottenburg (Berlin)</strong> | VR 23156</p>
-            <p>Infrastructure Architecture by <strong>Frank Fru</strong></p>
+            <p>Infrastructure managed by <strong>Frank Fru</strong></p>
           </div>
         </section>
       </main>
@@ -184,8 +184,7 @@ export default function App() {
         <p>© 2026 Grassland Kulturverein e.V. Berlin. All Rights Reserved.</p>
         <div style={{ marginTop: '15px' }}>
           <a href="https://frankfru.com" target="_blank" rel="noreferrer" style={{ margin: '0 10px', color: '#1b5e20', textDecoration: 'none', fontWeight: '600' }}>frankfru.com</a> | 
-          <a href="https://github.com/chifru19" target="_blank" rel="noreferrer" style={{ margin: '0 10px', color: '#1b5e20', textDecoration: 'none', fontWeight: '600' }}>GitHub</a> | 
-          <a href="https://linkedin.com/in/frankfru" target="_blank" rel="noreferrer" style={{ margin: '0 10px', color: '#1b5e20', textDecoration: 'none', fontWeight: '600' }}>LinkedIn</a>
+          <a href="https://github.com/chifru19" target="_blank" rel="noreferrer" style={{ margin: '0 10px', color: '#1b5e20', textDecoration: 'none', fontWeight: '600' }}>GitHub</a>
         </div>
       </footer>
     </div>
