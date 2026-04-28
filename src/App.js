@@ -182,6 +182,7 @@ export default function App() {
 
       <footer style={{ textAlign: 'center', padding: '60px', borderTop: '1px solid #ddd', marginTop: '50px' }}>
         <p>© 2026 Grassland Kulturverein e.V. Berlin. All Rights Reserved.</p>
+        
         <div style={{ marginTop: '15px' }}>
           <a href="https://frankfru.com" target="_blank" rel="noreferrer" style={{ margin: '0 10px', color: '#1b5e20', textDecoration: 'none', fontWeight: '600' }}>frankfru.com</a> | 
           <a href="https://github.com/chifru19" target="_blank" rel="noreferrer" style={{ margin: '0 10px', color: '#1b5e20', textDecoration: 'none', fontWeight: '600' }}>GitHub</a> | 
