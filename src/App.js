@@ -39,7 +39,7 @@ export default function App() {
     textTransform: 'uppercase'
   };
 
-  // Explicitly defined paths for the public/images folder
+  // Explicitly mapping the 6 community images you moved to public/images
   const galleryImages = [
     '/images/ngoteh-01.jpg',
     '/images/ngoteh-02.jpg',
@@ -119,14 +119,16 @@ export default function App() {
 
         {/* --- DYNAMIC EVENT GALLERY --- */}
         <section id="gallery" style={{ marginBottom: '120px', scrollMarginTop: '120px' }}>
-          <h2 style={sectionHeaderStyle}>Event Gallery</h2>
+          <h2 style={sectionHeaderStyle}>Community Event Gallery</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
             {galleryImages.map((src, idx) => (
               <div key={idx} style={{ overflow: 'hidden', borderRadius: '20px', boxShadow: '0 12px 25px rgba(0,0,0,0.15)', border: '5px solid white' }}>
                 <img 
                   src={src} 
-                  alt={`Grassland Event ${idx + 1}`} 
+                  alt={`Grassland Community Event ${idx + 1}`} 
                   style={{ width: '100%', height: '320px', objectFit: 'cover', display: 'block', transition: 'transform 0.6s ease' }} 
+                  onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                  onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
                 />
               </div>
             ))}
@@ -135,7 +137,7 @@ export default function App() {
 
         {/* --- NGOTEH GROUP & PERFORMANCE --- */}
         <section id="ngoteh" style={{ marginBottom: '120px', scrollMarginTop: '120px' }}>
-          <h2 style={sectionHeaderStyle}>Ngoteh Cultural Group</h2>
+          <h2 style={sectionHeaderStyle}>Ngoteh Cultural Performance Group</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '50px' }}>
             <div style={{ background: '#fff', padding: '45px', borderRadius: '30px', boxShadow: '0 12px 30px rgba(0,0,0,0.05)' }}>
               <h3 style={{ color: '#1b5e20', fontSize: '1.8rem', marginBottom: '20px' }}>Preserving Highland Rhythms</h3>
@@ -149,6 +151,7 @@ export default function App() {
               <div style={{ textAlign: 'center' }}>
                 <p style={{ fontSize: '3rem', marginBottom: '15px' }}>🎥</p>
                 <p style={{ fontWeight: 'bold', fontSize: '1.4rem' }}>Ngoteh Group In Action</p>
+                <p style={{ fontSize: '1rem', opacity: 0.7, padding: '0 20px' }}>Authentic Highland Dance Performance Video</p>
               </div>
             </div>
           </div>
@@ -159,13 +162,14 @@ export default function App() {
           <h2 style={{ color: '#e65100', textAlign: 'center', fontSize: '3rem', marginBottom: '25px' }}>Grassland Kids Corner</h2>
           <p style={{ textAlign: 'center', fontSize: '1.45rem', maxWidth: '900px', margin: '0 auto', lineHeight: '1.7', color: '#5d4037' }}>
             Passing down storytelling, language, and cultural arts to the next generation. We focus on identity 
-            and heritage for the children of the community, ensuring they stay connected to their history.
+            and heritage for the children of the community, ensuring they stay connected to their history 
+            while thriving in their local environment here in Berlin.
           </p>
         </section>
 
         {/* --- SUPPORT / BANKING --- */}
         <section id="support" style={{ marginBottom: '120px', scrollMarginTop: '120px', backgroundColor: '#1b5e20', color: 'white', padding: '80px 20px', borderRadius: '45px', textAlign: 'center' }}>
-          <h2 style={{ color: '#f9a825', fontSize: '3rem', marginBottom: '35px' }}>Support Our Mission</h2>
+          <h2 style={{ color: '#f9a825', fontSize: '3rem', marginBottom: '35px' }}>Support Our Cultural Mission</h2>
           <div style={{ backgroundColor: 'rgba(255,255,255,0.15)', padding: '45px', borderRadius: '25px', border: '1px solid rgba(255,255,255,0.3)', display: 'inline-block', textAlign: 'left' }}>
             <p style={{ fontSize: '1.6rem', marginBottom: '15px' }}><strong>Bank:</strong> BERLINER VOLKSBANK</p>
             <p style={{ fontSize: '1.6rem', marginBottom: '15px' }}><strong>IBAN:</strong> DE27 1009 0000 7218 2980 06</p>
@@ -178,18 +182,18 @@ export default function App() {
           <div style={{ backgroundColor: '#fff', padding: '55px', borderRadius: '30px', boxShadow: '0 20px 50px rgba(0,0,0,0.1)' }}>
             <h2 style={{ marginBottom: '30px', fontSize: '2.2rem' }}>Become a Member</h2>
             <form onSubmit={handleRegister} style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
-              <input type="text" placeholder="Full Name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} style={{ padding: '20px', borderRadius: '15px', border: '1px solid #ddd', fontSize: '1.1rem' }} />
-              <input type="email" placeholder="Email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} style={{ padding: '20px', borderRadius: '15px', border: '1px solid #ddd', fontSize: '1.1rem' }} />
-              <button type="submit" style={{ backgroundColor: '#f9a825', color: '#1b5e20', padding: '20px', fontWeight: '900', border: 'none', borderRadius: '15px', cursor: 'pointer', fontSize: '1.2rem', textTransform: 'uppercase' }}>Register</button>
+              <input type="text" placeholder="Full Legal Name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} style={{ padding: '20px', borderRadius: '15px', border: '1px solid #ddd', fontSize: '1.1rem' }} />
+              <input type="email" placeholder="Email Address" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} style={{ padding: '20px', borderRadius: '15px', border: '1px solid #ddd', fontSize: '1.1rem' }} />
+              <button type="submit" style={{ backgroundColor: '#f9a825', color: '#1b5e20', padding: '20px', fontWeight: '900', border: 'none', borderRadius: '15px', cursor: 'pointer', fontSize: '1.2rem', textTransform: 'uppercase', boxShadow: '0 5px 15px rgba(249,168,37,0.4)' }}>Register</button>
             </form>
           </div>
           <div style={{ padding: '20px' }}>
-            <h3 style={{ color: '#1b5e20', fontSize: '2rem', marginBottom: '25px' }}>Impressum</h3>
+            <h3 style={{ color: '#1b5e20', fontSize: '2rem', marginBottom: '25px' }}>Impressum & Registry</h3>
             <p style={{ fontSize: '1.2rem', margin: '15px 0' }}><strong>Amtsgericht Charlottenburg (Berlin)</strong></p>
-            <p style={{ fontSize: '1.2rem', margin: '15px 0' }}><strong>Registernummer:</strong> VR 23156</p>
+            <p style={{ fontSize: '1.2rem', margin: '15px 0' }}><strong>Vereinsregisternummer:</strong> VR 23156</p>
             <p style={{ fontSize: '1.2rem', margin: '15px 0' }}><strong>Managing Director:</strong> Frank Fru</p>
-            <p style={{ fontSize: '1.2rem', margin: '15px 0' }}><strong>Location:</strong> Sprengelstr. 15, 13353 Berlin</p>
-            <p style={{ marginTop: '40px', fontStyle: 'italic', opacity: 0.8 }}>Preserving our cultural heritage for a united future.</p>
+            <p style={{ fontSize: '1.2rem', margin: '15px 0' }}><strong>Location:</strong> Sprengelstr. 15, 13353 Berlin, Germany</p>
+            <p style={{ marginTop: '40px', fontStyle: 'italic', opacity: 0.8, borderTop: '1px solid #ddd', paddingTop: '20px' }}>Preserving our cultural heritage for a united and empowered future.</p>
           </div>
         </section>
       </main>
@@ -200,9 +204,9 @@ export default function App() {
           © 2026 Deutsch-Kamerunischer Grassland Kulturverein e.V. Berlin
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap' }}>
-          <a href="https://frankfru.com" style={{ color: '#555', textDecoration: 'none', fontWeight: '600' }}>frankfru.com</a>
-          <a href="https://github.com/chifru19" style={{ color: '#555', textDecoration: 'none', fontWeight: '600' }}>GitHub</a>
-          <a href="https://linkedin.com/in/frankfru" style={{ color: '#555', textDecoration: 'none', fontWeight: '600' }}>LinkedIn</a>
+          <a href="https://frankfru.com" style={{ color: '#555', textDecoration: 'none', fontWeight: '600' }}>Official Website</a>
+          <a href="https://github.com/chifru19" style={{ color: '#555', textDecoration: 'none', fontWeight: '600' }}>GitHub Profile</a>
+          <a href="https://linkedin.com/in/frankfru" style={{ color: '#555', textDecoration: 'none', fontWeight: '600' }}>LinkedIn Profile</a>
         </div>
       </footer>
     </div>
