@@ -48,19 +48,28 @@ export default function App() {
   return (
     <div className="App" style={{ backgroundColor: '#fdfbf7', color: '#2c3e50', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
       
-      {/* --- LOGO AT THE TOP --- */}
+      {/* --- HERO SECTION: LOGO AT THE VERY TOP --- */}
       <header id="home" style={{ 
-        textAlign: 'center', color: 'white', borderBottom: '6px solid #f9a825',
+        textAlign: 'center', 
+        color: 'white', 
+        borderBottom: '6px solid #f9a825',
         background: `linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.85)), url('/images/ngoteh-event-01.jpg')`, 
-        backgroundSize: 'cover', backgroundPosition: 'center', padding: '100px 20px' 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center', 
+        padding: '100px 20px' 
       }}>
         <div style={{ marginBottom: '30px' }}>
-          <img src="/images/verein-logo.png" alt="Logo" style={{ height: '220px', borderRadius: '15px', backgroundColor: 'white', padding: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} />
+          <img 
+            src="/images/verein-logo.png" 
+            alt="Logo" 
+            style={{ height: '220px', borderRadius: '15px', backgroundColor: 'white', padding: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} 
+          />
         </div>
         <h1 style={{ fontSize: '3.2rem', margin: '0', fontWeight: '800' }}>Deutsch-Kamerunischer Grassland Kulturverein e.V.</h1>
         <p style={{ fontSize: '1.4rem', color: '#f9a825', marginTop: '15px', fontWeight: 'bold' }}>Sprengelstr. 15, 13353 Berlin</p>
       </header>
 
+      {/* --- MAIN NAVIGATION --- */}
       <nav style={{ backgroundColor: '#1b5e20', padding: '15px', color: 'white', display: 'flex', justifyContent: 'center', gap: '30px', position: 'sticky', top: 0, zIndex: 1000 }}>
         <span onClick={() => scrollTo('home')} style={navItemStyle}>Home</span>
         <span onClick={() => scrollTo('meetings')} style={navItemStyle}>Meetings</span>
@@ -72,6 +81,7 @@ export default function App() {
 
       <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 20px' }}>
         
+        {/* --- MEETINGS SECTION --- */}
         <section id="meetings" style={{ marginBottom: '100px', scrollMarginTop: '100px' }}>
           <h2 style={sectionHeaderStyle}>Monthly Meeting Sessions</h2>
           <div style={{ background: '#fff', padding: '50px', borderRadius: '25px', border: '1px solid #eee' }}>
@@ -80,6 +90,7 @@ export default function App() {
           </div>
         </section>
 
+        {/* --- NGOTEH SECTION: CULTURAL GALLERY --- */}
         <section id="ngoteh" style={{ marginBottom: '100px', scrollMarginTop: '100px' }}>
           <h2 style={sectionHeaderStyle}>Ngoteh Cultural Group</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
@@ -91,6 +102,7 @@ export default function App() {
           </div>
         </section>
 
+        {/* --- ACTIVITIES SECTION: UPCOMING EVENTS --- */}
         <section id="activities" style={{ marginBottom: '100px', scrollMarginTop: '100px' }}>
           <h2 style={sectionHeaderStyle}>Upcoming Activities</h2>
           <div style={{ background: '#fff', padding: '50px', borderRadius: '25px', border: '1px solid #eee', textAlign: 'center' }}>
@@ -99,11 +111,13 @@ export default function App() {
           </div>
         </section>
 
+        {/* --- KIDS CORNER SECTION --- */}
         <section id="kids" style={{ marginBottom: '100px', backgroundColor: '#fffbe6', padding: '60px', borderRadius: '40px' }}>
           <h2 style={{ color: '#e65100', textAlign: 'center', fontSize: '2.8rem' }}>Grassland Kids Corner</h2>
           <p style={{ textAlign: 'center', fontSize: '1.3rem' }}>Investing in the future by passing down storytelling and language to the next generation.</p>
         </section>
 
+        {/* --- SUPPORT SECTION: IBAN & QR CODE --- */}
         <section id="support" style={{ marginBottom: '100px', backgroundColor: '#1b5e20', color: 'white', padding: '80px 20px', borderRadius: '40px', textAlign: 'center' }}>
           <h2 style={{ color: '#f9a825', fontSize: '3rem', marginBottom: '40px' }}>Support Our Mission</h2>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px' }}>
@@ -115,6 +129,7 @@ export default function App() {
           </div>
         </section>
 
+        {/* --- JOIN & ADMIN SECTION --- */}
         <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '50px' }}>
           <div style={{ backgroundColor: '#fff', padding: '50px', borderRadius: '25px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
             <h2>Become a Member</h2>
@@ -127,7 +142,7 @@ export default function App() {
           <div style={{ padding: '20px' }}>
             <h3>Association Registry</h3>
             <p><strong>Amtsgericht Charlottenburg</strong> | VR 23156</p>
-            <p style={{ marginTop: '40px', fontWeight: 'bold' }}>Website Admin:</p>
+            <p style={{ marginTop: '40px', fontWeight: 'bold' }}>Website Administrator:</p>
             <a href="https://frankfru.com" target="_blank" rel="noreferrer" style={{ color: '#1b5e20', textDecoration: 'none', fontWeight: '800', borderBottom: '2px solid #f9a825' }}>frankfru.com</a>
           </div>
         </section>
