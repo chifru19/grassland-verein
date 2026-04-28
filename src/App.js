@@ -48,7 +48,7 @@ export default function App() {
   return (
     <div className="App" style={{ backgroundColor: '#fdfbf7', color: '#2c3e50', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
       
-      {/* --- HERO SECTION --- */}
+      {/* --- HERO SECTION: LOGO AT TOP --- */}
       <header id="home" style={{ 
         position: 'relative',
         textAlign: 'center',
@@ -62,8 +62,8 @@ export default function App() {
         <div style={{ marginBottom: '30px' }}>
           <img 
             src="/images/verein-logo.png" 
-            alt="Logo" 
-            style={{ height: '180px', borderRadius: '15px', backgroundColor: 'white', padding: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }} 
+            alt="Grassland Verein Logo" 
+            style={{ height: '220px', borderRadius: '15px', backgroundColor: 'white', padding: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} 
           />
         </div>
         <h1 style={{ fontSize: '3.2rem', margin: '0', fontWeight: '800' }}>
@@ -109,7 +109,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- GALLERY SECTION --- */}
+        {/* --- GALLERY SECTION: INCLUDES LEADERSHIP IMAGE --- */}
         <section id="gallery" style={{ marginBottom: '120px', scrollMarginTop: '100px' }}>
           <h2 style={sectionHeaderStyle}>Event Gallery</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px' }}>
