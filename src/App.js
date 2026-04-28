@@ -39,7 +39,7 @@ export default function App() {
     textTransform: 'uppercase'
   };
 
-  // Image Paths based on your public/images folder
+  // Image Paths based on your successfully uploaded public/images folder
   const galleryImages = [
     '/images/ngoteh-01.jpg',
     '/images/ngoteh-02.jpg',
