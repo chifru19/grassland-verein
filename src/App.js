@@ -35,6 +35,7 @@ export default function App() {
   };
 
   const galleryImages = [
+    '/images/ngoteh-leadership.jpg',
     '/images/ngoteh-01.jpg',
     '/images/ngoteh-02.jpg',
     '/images/ngoteh-03.jpg',
@@ -181,7 +182,6 @@ export default function App() {
         </section>
       </main>
 
-      {/* --- FOOTER SECTION --- */}
       <footer style={{ textAlign: 'center', padding: '80px 20px', borderTop: '1px solid #eee', marginTop: '60px', backgroundColor: '#fff' }}>
         <p style={{ fontSize: '1.1rem', color: '#666' }}>© 2026 Grassland Kulturverein e.V. Berlin. All Rights Reserved.</p>
         <div style={{ marginTop: '20px' }}>
@@ -192,3 +192,5 @@ export default function App() {
     </div>
   );
 }
+
+// Line 194
