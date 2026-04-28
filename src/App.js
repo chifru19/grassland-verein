@@ -34,14 +34,15 @@ export default function App() {
     transition: '0.3s'
   };
 
-  // Mapping the community images moved to public/images
+  // Mapping the community images ngoteh-01 to ngoteh-07
   const galleryImages = [
     '/images/ngoteh-01.jpg',
     '/images/ngoteh-02.jpg',
     '/images/ngoteh-03.jpg',
     '/images/ngoteh-04.jpg',
     '/images/ngoteh-05.jpg',
-    '/images/ngoteh-06.jpg'
+    '/images/ngoteh-06.jpg',
+    '/images/ngoteh-07.jpg'
   ];
 
   return (
