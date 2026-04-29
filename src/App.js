@@ -60,8 +60,8 @@ export default function App() {
   };
 
   // --- IMAGE REPOSITORIES ---
-  
-  // 1. General Gallery (Restored all 4 original images)
+
+  // 1. ORIGINAL GENERAL GALLERY RESTORED
   const mainGalleryImages = [
     'images/ngoteh-leadership.jpg', 
     'images/ngoteh-01.jpg', 
@@ -69,7 +69,7 @@ export default function App() {
     'images/ngoteh-03.jpg'
   ];
 
-  // 2. Meeting Gallery (Extended to 10 slots)
+  // 2. MEETING GALLERY (10 IMAGES)
   const meetingGalleryImages = [
     'assets/meeting-01.jpg', 'assets/meeting-02.jpg', 'assets/meeting-03.jpg', 
     'assets/meeting-04.jpg', 'assets/meeting-05.jpg', 'assets/meeting-06.jpg', 
@@ -77,7 +77,7 @@ export default function App() {
     'assets/meeting-10.jpg'
   ];
 
-  // 3. Kids Gallery (Extended to 6 slots)
+  // 3. KIDS GALLERY (6 IMAGES)
   const kidsGalleryImages = [
     'images/kids-01.jpg', 'images/kids-02.jpg', 'images/kids-03.jpg', 
     'images/kids-04.jpg', 'images/kids-05.jpg', 'images/kids-06.jpg'
@@ -99,7 +99,7 @@ export default function App() {
         <p style={{ fontSize: '1.2rem', color: '#f9a825', marginTop: '15px', fontWeight: 'bold' }}>Sprengelstr. 15, 13353 Berlin</p>
       </header>
 
-      {/* --- NAV --- */}
+      {/* --- REACTIVE NAV --- */}
       <nav style={{ backgroundColor: '#1b5e20', padding: '10px', color: 'white', display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '10px', position: 'sticky', top: 0, zIndex: 1000 }}>
         <span onClick={() => scrollTo('home')} style={navItemStyle}>Home</span>
         <span onClick={() => scrollTo('meetings')} style={navItemStyle}>Meetings</span>
