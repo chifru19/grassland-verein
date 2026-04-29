@@ -59,17 +59,25 @@ export default function App() {
     backgroundColor: '#fff'
   };
 
-  // --- IMAGE REPOSITORIES (Upload links here) ---
+  // --- IMAGE REPOSITORIES ---
   const mainGalleryImages = [
-    'images/ngoteh-leadership.jpg', 'images/ngoteh-01.jpg', 'images/ngoteh-02.jpg', 'images/ngoteh-03.jpg'
+    'images/ngoteh-leadership.jpg', 'images/ngoteh-01.jpg', 'images/ngoteh-02.jpg', 
+    'images/ngoteh-03.jpg', 'images/ngoteh-04.jpg', 'images/ngoteh-05.jpg',
+    'images/ngoteh-06.jpg', 'images/ngoteh-07.jpg'
   ];
 
+  // Extended to 10 images - Updated paths to match your /public/images folder
   const meetingGalleryImages = [
-    'images/meeting-01.jpg', 'images/meeting-02.jpg', 'images/meeting-03.jpg', 'images/meeting-04.jpg'
+    'images/meeting-01.jpg', 'images/meeting-02.jpg', 'images/meeting-03.jpg', 
+    'images/meeting-04.jpg', 'images/meeting-05.jpg', 'images/meeting-06.jpg', 
+    'images/meeting-07.jpg', 'images/meeting-08.jpg', 'images/meeting-09.jpg', 
+    'images/meeting-10.jpg'
   ];
 
+  // Extended to 6 images
   const kidsGalleryImages = [
-    'images/kids-01.jpg', 'images/kids-02.jpg', 'images/kids-03.jpg', 'images/kids-04.jpg'
+    'images/kids-01.jpg', 'images/kids-02.jpg', 'images/kids-03.jpg', 
+    'images/kids-04.jpg', 'images/kids-05.jpg', 'images/kids-06.jpg'
   ];
 
   return (
@@ -113,7 +121,7 @@ export default function App() {
             <div style={gridStyle}>
               {meetingGalleryImages.map((src, idx) => (
                 <div key={idx} style={imgCardStyle}>
-                  <img src={src} alt="Meeting" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+                  <img src={src} alt={`Meeting ${idx + 1}`} style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
                 </div>
               ))}
             </div>
@@ -129,7 +137,7 @@ export default function App() {
           <div style={gridStyle}>
             {kidsGalleryImages.map((src, idx) => (
               <div key={idx} style={imgCardStyle}>
-                <img src={src} alt="Kids Section" style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+                <img src={src} alt={`Kids Section ${idx + 1}`} style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
               </div>
             ))}
           </div>
@@ -176,6 +184,7 @@ export default function App() {
             <p><strong>Amtsgericht Charlottenburg</strong> | VR 23156</p>
             <p style={{ marginTop: '20px' }}><strong>Website Admin:</strong></p>
             <a href="https://frankfru.com" target="_blank" rel="noreferrer" style={{ color: '#1b5e20', textDecoration: 'none', fontWeight: '800', borderBottom: '2px solid #f9a825' }}>frankfru.com</a>
+            <p><a href="https://github.com/chifru19" target="_blank" rel="noreferrer" style={{ color: '#2c3e50', fontSize: '0.8rem' }}>GitHub</a> | <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ color: '#2c3e50', fontSize: '0.8rem' }}>LinkedIn</a></p>
           </div>
         </section>
       </main>
