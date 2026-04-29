@@ -59,14 +59,21 @@ export default function App() {
     backgroundColor: '#fff'
   };
 
-  // --- IMAGE REPOSITORIES (Matched to your sidebar) ---
+  // --- IMAGE REPOSITORIES (Matched EXACTLY to your folder names) ---
+  
+  // 1. General Gallery (All original ngoteh images restored)
   const mainGalleryImages = [
     'images/ngoteh-leadership.jpg', 
     'images/ngoteh-01.jpg', 
     'images/ngoteh-02.jpg', 
-    'images/ngoteh-03.jpg'
+    'images/ngoteh-03.jpg',
+    'images/ngoteh-04.jpg',
+    'images/ngoteh-05.jpg',
+    'images/ngoteh-06.jpg',
+    'images/ngoteh-07.jpg'
   ];
 
+  // 2. Meeting Gallery (10 slots pointing to public/assets/)
   const meetingGalleryImages = [
     'assets/meeting-01.jpg', 'assets/meeting-02.jpg', 'assets/meeting-03.jpg', 
     'assets/meeting-04.jpg', 'assets/meeting-05.jpg', 'assets/meeting-06.jpg', 
@@ -74,6 +81,7 @@ export default function App() {
     'assets/meeting-10.jpg'
   ];
 
+  // 3. Kids Gallery (6 slots pointing to public/images/)
   const kidsGalleryImages = [
     'images/kids-01.jpg', 'images/kids-02.jpg', 'images/kids-03.jpg', 
     'images/kids-04.jpg', 'images/kids-05.jpg', 'images/kids-06.jpg'
