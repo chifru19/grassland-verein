@@ -66,15 +66,14 @@ export default function App() {
     'images/ngoteh-06.jpg', 'images/ngoteh-07.jpg'
   ];
 
-  // Extended to 10 images - Updated paths to match your /public/images folder
+  // Corrected paths to point to your new 'assets' folder inside 'public'
   const meetingGalleryImages = [
-    'images/meeting-01.jpg', 'images/meeting-02.jpg', 'images/meeting-03.jpg', 
-    'images/meeting-04.jpg', 'images/meeting-05.jpg', 'images/meeting-06.jpg', 
-    'images/meeting-07.jpg', 'images/meeting-08.jpg', 'images/meeting-09.jpg', 
-    'images/meeting-10.jpg'
+    'assets/meeting-01.jpg', 'assets/meeting-02.jpg', 'assets/meeting-03.jpg', 
+    'assets/meeting-04.jpg', 'assets/meeting-05.jpg', 'assets/meeting-06.jpg', 
+    'assets/meeting-07.jpg', 'assets/meeting-08.jpg', 'assets/meeting-09.jpg', 
+    'assets/meeting-10.jpg'
   ];
 
-  // Extended to 6 images
   const kidsGalleryImages = [
     'images/kids-01.jpg', 'images/kids-02.jpg', 'images/kids-03.jpg', 
     'images/kids-04.jpg', 'images/kids-05.jpg', 'images/kids-06.jpg'
