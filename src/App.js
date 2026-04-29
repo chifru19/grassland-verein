@@ -59,9 +59,7 @@ export default function App() {
     backgroundColor: '#fff'
   };
 
-  // --- IMAGE REPOSITORIES ---
-
-  // 1. Restored original General Gallery
+  // --- IMAGE REPOSITORIES (Matched to your sidebar) ---
   const mainGalleryImages = [
     'images/ngoteh-leadership.jpg', 
     'images/ngoteh-01.jpg', 
@@ -69,7 +67,6 @@ export default function App() {
     'images/ngoteh-03.jpg'
   ];
 
-  // 2. Expanded Meeting Gallery (10 slots)
   const meetingGalleryImages = [
     'assets/meeting-01.jpg', 'assets/meeting-02.jpg', 'assets/meeting-03.jpg', 
     'assets/meeting-04.jpg', 'assets/meeting-05.jpg', 'assets/meeting-06.jpg', 
@@ -77,7 +74,6 @@ export default function App() {
     'assets/meeting-10.jpg'
   ];
 
-  // 3. Expanded Kids Gallery (6 slots)
   const kidsGalleryImages = [
     'images/kids-01.jpg', 'images/kids-02.jpg', 'images/kids-03.jpg', 
     'images/kids-04.jpg', 'images/kids-05.jpg', 'images/kids-06.jpg'
@@ -99,7 +95,7 @@ export default function App() {
         <p style={{ fontSize: '1.2rem', color: '#f9a825', marginTop: '15px', fontWeight: 'bold' }}>Sprengelstr. 15, 13353 Berlin</p>
       </header>
 
-      {/* --- NAV --- */}
+      {/* --- REACTIVE NAV --- */}
       <nav style={{ backgroundColor: '#1b5e20', padding: '10px', color: 'white', display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '10px', position: 'sticky', top: 0, zIndex: 1000 }}>
         <span onClick={() => scrollTo('home')} style={navItemStyle}>Home</span>
         <span onClick={() => scrollTo('meetings')} style={navItemStyle}>Meetings</span>
@@ -187,7 +183,10 @@ export default function App() {
             <p><strong>Amtsgericht Charlottenburg</strong> | VR 23156</p>
             <p style={{ marginTop: '20px' }}><strong>Website Admin:</strong></p>
             <a href="https://frankfru.com" target="_blank" rel="noreferrer" style={{ color: '#1b5e20', textDecoration: 'none', fontWeight: '800', borderBottom: '2px solid #f9a825' }}>frankfru.com</a>
-            <p><a href="https://github.com/chifru19" target="_blank" rel="noreferrer" style={{ color: '#2c3e50', fontSize: '0.8rem' }}>GitHub</a> | <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ color: '#2c3e50', fontSize: '0.8rem' }}>LinkedIn</a></p>
+            <div style={{ marginTop: '10px' }}>
+              <a href="https://github.com/chifru19" target="_blank" rel="noreferrer" style={{ color: '#2c3e50', textDecoration: 'none', fontSize: '0.9rem', marginRight: '10px' }}>GitHub</a>
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ color: '#2c3e50', textDecoration: 'none', fontSize: '0.9rem' }}>LinkedIn</a>
+            </div>
           </div>
         </section>
       </main>
