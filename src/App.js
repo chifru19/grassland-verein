@@ -61,7 +61,7 @@ export default function App() {
 
   // --- IMAGE REPOSITORIES ---
 
-  // 1. All original ngoteh images restored (from public/images)
+  // 1. General Gallery - Restored all Ngoteh images
   const mainGalleryImages = [
     'images/ngoteh-leadership.jpg', 
     'images/ngoteh-01.jpg', 
@@ -73,7 +73,7 @@ export default function App() {
     'images/ngoteh-07.jpg'
   ];
 
-  // 2. Meeting Gallery (10 slots pointing to public/assets/)
+  // 2. Meeting Gallery - 10 images pointing to the new /public/assets folder
   const meetingGalleryImages = [
     'assets/meeting-01.jpg', 'assets/meeting-02.jpg', 'assets/meeting-03.jpg', 
     'assets/meeting-04.jpg', 'assets/meeting-05.jpg', 'assets/meeting-06.jpg', 
@@ -81,7 +81,7 @@ export default function App() {
     'assets/meeting-10.jpg'
   ];
 
-  // 3. Kids Gallery (6 slots pointing to public/images/)
+  // 3. Kids Gallery - 6 images
   const kidsGalleryImages = [
     'images/kids-01.jpg', 'images/kids-02.jpg', 'images/kids-03.jpg', 
     'images/kids-04.jpg', 'images/kids-05.jpg', 'images/kids-06.jpg'
@@ -191,10 +191,10 @@ export default function App() {
             <p><strong>Amtsgericht Charlottenburg</strong> | VR 23156</p>
             <p style={{ marginTop: '20px' }}><strong>Website Admin:</strong></p>
             <a href="https://frankfru.com" target="_blank" rel="noreferrer" style={{ color: '#1b5e20', textDecoration: 'none', fontWeight: '800', borderBottom: '2px solid #f9a825' }}>frankfru.com</a>
-            <div style={{ marginTop: '10px' }}>
-              <a href="https://github.com/chifru19" target="_blank" rel="noreferrer" style={{ color: '#2c3e50', textDecoration: 'none', fontSize: '0.9rem', marginRight: '10px' }}>GitHub</a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ color: '#2c3e50', textDecoration: 'none', fontSize: '0.9rem' }}>LinkedIn</a>
-            </div>
+            <p style={{ marginTop: '10px' }}>
+              <a href="https://github.com/chifru19" target="_blank" rel="noreferrer" style={{ color: '#2c3e50', fontSize: '0.9rem', marginRight: '10px', textDecoration: 'none' }}>GitHub</a> | 
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ color: '#2c3e50', fontSize: '0.9rem', marginLeft: '10px', textDecoration: 'none' }}>LinkedIn</a>
+            </p>
           </div>
         </section>
       </main>
