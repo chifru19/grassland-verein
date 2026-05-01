@@ -3,16 +3,15 @@ import React, { useState } from 'react';
 /**
  * Deutsch-Kamerunischer Kulturverein Website
  * ------------------------------------------
- * Version: 3.2.0
+ * Version: 5.0.0
  * Features:
- * - Full Multilingual Support (EN, DE, FR)
- * - Kids/Youth Gallery (Videos & Images)
- * - Upcoming Events Section
- * - QR Code Support Integration
- * - GitHub Pages Optimized Pathing
+ * - Full Trilingual Support (EN/DE/FR)
+ * - Dynamic Gallery (Meetings, Kids, Events, General)
+ * - GitHub Pages Deployment Optimized
+ * - All text elements tied to translation system
  */
 
-// --- 1. TRANSLATION DATA ---
+// --- 1. FULL TRILINGUAL TRANSLATION DATA ---
 const i18n = {
   en: {
     nav: { home: "Home", meetings: "Meetings", kids: "Kids", events: "Events", gallery: "Gallery", support: "Support" },
@@ -75,23 +74,21 @@ export default function App() {
   const [formData, setFormData] = useState({ name: '', email: '' });
   const t = i18n[lang];
 
-  // Helper to force paths to the correct URL (GitHub Pages sub-directory)
+  // Helper: Ensures files load from /grassland-verein/
   const p = (path) => `${process.env.PUBLIC_URL}${path}`;
 
   // --- 2. DATA REPOSITORIES ---
-  const mainGallery = [
+  const mainGalleryImages = [
     p('/images/ngoteh-leadership.jpg'), p('/images/ngoteh-01.jpg'), p('/images/ngoteh-02.jpg'), 
-    p('/images/ngoteh-03.jpg'), p('/images/ngoteh-04.jpg'), p('/images/ngoteh-05.jpg'),
-    p('/images/ngoteh-06.jpg'), p('/images/ngoteh-07.jpg')
+    p('/images/ngoteh-03.jpg'), p('/images/ngoteh-04.jpg'), p('/images/ngoteh-05.jpg')
   ];
 
-  const meetingGallery = [
+  const meetingGalleryImages = [
     p('/assets/meeting-01.jpg'), p('/assets/meeting-02.jpg'), p('/assets/meeting-03.jpg'), 
-    p('/assets/meeting-04.jpg'), p('/assets/meeting-05.jpg'), p('/assets/meeting-06.jpg')
+    p('/assets/meeting-04.jpg'), p('/assets/meeting-05.jpg')
   ];
 
-  // Kids: 2 Videos + 4 Images
-  const kidsGallery = [
+  const kidsGalleryItems = [
     { type: 'video', src: p('/videos/kids-activity-01.mp4') },
     { type: 'video', src: p('/videos/kids-dance-event.mp4') },
     { type: 'image', src: p('/images/kids-01.jpg') },
@@ -100,7 +97,6 @@ export default function App() {
     { type: 'image', src: p('/images/kids-05.jpg') }
   ];
 
-  // Events
   const upcomingEvents = [
     { type: 'image', src: p('/images/event-placeholder.jpg') }
   ];
@@ -143,13 +139,14 @@ export default function App() {
 
       <header id="home" style={styles.hero}>
         <img src={p('/images/verein-logo.png')} alt="Logo" style={{ height: '120px', borderRadius: '15px', background: 'white', padding: '10px' }} />
-        <h1 style={{ margin: '20px 0 0 0' }}>{t.title}</h1>
+        <h1>{t.title}</h1>
         <p style={{ color: '#f9a825', fontWeight: 'bold' }}>{t.subtitle}</p>
       </header>
 
+      {/* FIXED NAVIGATION - USES OBJECT.ENTRIES FOR ORDER */}
       <nav style={styles.nav}>
-        {Object.keys(t.nav).map(key => (
-          <span key={key} onClick={() => scrollTo(key)} style={{ color: 'white', margin: '0 15px', cursor: 'pointer', fontWeight: 'bold' }}>{t.nav[key]}</span>
+        {Object.entries(t.nav).map(([key, label]) => (
+          <span key={key} onClick={() => scrollTo(key)} style={{ color: 'white', margin: '0 15px', cursor: 'pointer', fontWeight: 'bold' }}>{label}</span>
         ))}
       </nav>
 
@@ -157,9 +154,7 @@ export default function App() {
         {/* MEETINGS */}
         <section id="meetings" style={styles.section}>
           <h2 style={styles.headerTitle}>{t.meetingTitle}</h2>
-          <div style={styles.grid}>
-            {meetingGallery.map((src, i) => <div key={i} style={styles.card}><img src={src} style={styles.media} alt="Meeting" /></div>)}
-          </div>
+          <div style={styles.grid}>{meetingGallery.map((src, i) => <div key={i} style={styles.card}><img src={src} style={styles.media} alt="Meeting" /></div>)}</div>
         </section>
 
         {/* KIDS */}
@@ -194,14 +189,18 @@ export default function App() {
           </div>
         </section>
 
-        {/* SUPPORT & QR */}
+        {/* SUPPORT */}
         <section id="support" style={styles.section}>
           <div style={{ backgroundColor: '#1b5e20', color: 'white', padding: '40px', borderRadius: '25px', textAlign: 'center' }}>
             <h2>{t.supportTitle}</h2>
             <div style={{ margin: '20px' }}>
               <img src={p('/images/qr-code.jpg')} alt="QR Code" style={{ width: '150px', height: '150px', borderRadius: '10px' }} />
             </div>
-            <p style={{ fontSize: '1.2rem' }}>IBAN: DE27 1009 0000 7218 2980 06</p>
+            <p>IBAN: DE27 1009 0000 7218 2980 06</p>
+            <form onSubmit={handleRegister} style={{ display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '20px' }}>
+              <input type="text" placeholder="Name" required onChange={(e) => setFormData({...formData, name: e.target.value})} style={{ padding: '10px' }} />
+              <button type="submit" style={{ padding: '10px', background: '#f9a825', border: 'none', cursor: 'pointer' }}>{t.registerBtn}</button>
+            </form>
           </div>
         </section>
       </main>
