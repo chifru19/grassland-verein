@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 
 /**
  * Deutsch-Kamerunischer Kulturverein Website
+ * Version: 2.2.5
  * ------------------------------------------
- * Features: Trilingual Support, Dynamic Gallery, Media Rendering.
- * Version: 2.2.0 (Expanded Architecture)
+ * Features:
+ * - Trilingual (EN/DE/FR) translation support
+ * - Dynamic gallery management
+ * - Media-rich sections (Meetings, Kids, Events, General)
+ * - Deployment-ready pathing for GitHub Pages
  */
 
 // --- 1. TRANSLATION DATA ---
@@ -14,14 +18,14 @@ const i18n = {
     title: "Deutsch-Kamerunischer Kulturverein",
     subtitle: "Sprengelstr. 15, 13353 Berlin",
     about: "Our Mission",
-    missionText: "Fostering cultural exchange and heritage preservation.",
+    missionText: "We are a community-driven organization dedicated to fostering cultural exchange and preserving heritage for future generations.",
     meetingTitle: "Monthly Meeting Sessions",
     meetingSub: "Every Second Saturday of the Month",
-    meetingDesc: "Join us at Sprengelstr. 15, 13353 Berlin.",
+    meetingDesc: "Join us for community dialogue at Sprengelstr. 15, 13353 Berlin.",
     kidsTitle: "Kids & Youth Section",
-    kidsDesc: "Heritage preservation through language and dance.",
+    kidsDesc: "Preserving our heritage for the next generation through language, dance, and storytelling.",
     eventsTitle: "Upcoming Events",
-    eventsDesc: "Check out our next cultural activities.",
+    eventsDesc: "Stay tuned for our upcoming cultural gatherings and activities!",
     galleryTitle: "General Event Gallery",
     supportTitle: "Support Our Mission",
     registerTitle: "Become a Member",
@@ -32,14 +36,14 @@ const i18n = {
     title: "Deutsch-Kamerunischer Kulturverein",
     subtitle: "Sprengelstr. 15, 13353 Berlin",
     about: "Unsere Mission",
-    missionText: "Kultureller Austausch und Erhalt unseres Erbes.",
+    missionText: "Wir sind eine Gemeinschaft, die sich dem kulturellen Austausch und der Bewahrung unseres Erbes widmet.",
     meetingTitle: "Monatliche Treffen",
     meetingSub: "Jeden zweiten Samstag im Monat",
-    meetingDesc: "Besuchen Sie uns in der Sprengelstr. 15, 13353 Berlin.",
+    meetingDesc: "Besuchen Sie uns zum Dialog in der Sprengelstr. 15, 13353 Berlin.",
     kidsTitle: "Kinder- und Jugendbereich",
-    kidsDesc: "Bewahrung unseres Erbes für die Zukunft.",
+    kidsDesc: "Bewahrung unseres Erbes für die nächste Generation durch Sprache, Tanz und Geschichten.",
     eventsTitle: "Kommende Veranstaltungen",
-    eventsDesc: "Bleiben Sie informiert über unsere Termine.",
+    eventsDesc: "Bleiben Sie informiert über unsere nächsten Treffen und Aktivitäten!",
     galleryTitle: "Allgemeine Galerie",
     supportTitle: "Unterstützen Sie uns",
     registerTitle: "Mitglied werden",
@@ -48,16 +52,16 @@ const i18n = {
   fr: {
     nav: { home: "Accueil", meetings: "Réunions", kids: "Enfants", events: "Événements", gallery: "Galerie", support: "Soutien" },
     title: "Deutsch-Kamerunischer Kulturverein",
-    subtitle: "15, Sprengelstr., 13353 Berlin",
+    subtitle: "Sprengelstr. 15, 13353 Berlin",
     about: "Notre Mission",
-    missionText: "Échange culturel et préservation de l'héritage.",
+    missionText: "Nous sommes une organisation communautaire dédiée à favoriser l'échange culturel et à préserver l'héritage.",
     meetingTitle: "Réunions Mensuelles",
     meetingSub: "Chaque deuxième samedi du mois",
-    meetingDesc: "Rejoignez-nous au 15, Sprengelstr., 13353 Berlin.",
+    meetingDesc: "Rejoignez-nous pour le dialogue communautaire au 15, Sprengelstr., 13353 Berlin.",
     kidsTitle: "Section Enfants et Jeunes",
-    kidsDesc: "Préserver notre héritage pour la prochaine génération.",
+    kidsDesc: "Préserver notre héritage pour la prochaine génération à travers la langue, la danse et les récits.",
     eventsTitle: "Événements à Venir",
-    eventsDesc: "Restez informés sur nos activités !",
+    eventsDesc: "Restez à l'écoute de nos prochaines rencontres et activités !",
     galleryTitle: "Galerie d'Événements",
     supportTitle: "Soutenez notre mission",
     registerTitle: "Devenir Membre",
@@ -70,21 +74,21 @@ export default function App() {
   const [formData, setFormData] = useState({ name: '', email: '' });
   const t = i18n[lang];
 
-  // Helper to ensure paths work on GitHub Pages
+  // Helper to force paths to the correct URL, even on GitHub Pages
   const p = (path) => `${process.env.PUBLIC_URL}${path}`;
 
-  // --- 2. DATA REPOSITORIES ---
+  // --- 2. IMAGE & VIDEO REPOSITORIES ---
   const mainGallery = [
     p('/images/ngoteh-leadership.jpg'), p('/images/ngoteh-01.jpg'), p('/images/ngoteh-02.jpg'), 
-    p('/images/ngoteh-03.jpg'), p('/images/ngoteh-04.jpg'), p('/images/ngoteh-05.jpg')
+    p('/images/ngoteh-03.jpg'), p('/images/ngoteh-04.jpg'), p('/images/ngoteh-05.jpg'),
+    p('/images/ngoteh-06.jpg'), p('/images/ngoteh-07.jpg')
   ];
 
   const meetingGallery = [
     p('/assets/meeting-01.jpg'), p('/assets/meeting-02.jpg'), p('/assets/meeting-03.jpg'), 
-    p('/assets/meeting-04.jpg'), p('/assets/meeting-05.jpg')
+    p('/assets/meeting-04.jpg'), p('/assets/meeting-05.jpg'), p('/assets/meeting-06.jpg')
   ];
 
-  // Exactly 2 Videos + 4 Images
   const kidsGallery = [
     { type: 'video', src: p('/videos/kids-activity-01.mp4') },
     { type: 'video', src: p('/videos/kids-dance-event.mp4') },
@@ -98,7 +102,7 @@ export default function App() {
     { type: 'image', src: p('/images/event-placeholder.jpg') }
   ];
 
-  // --- 3. HELPER FUNCTIONS ---
+  // --- 3. FUNCTIONS ---
   const scrollTo = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -112,30 +116,31 @@ export default function App() {
     setFormData({ name: '', email: '' });
   };
 
-  // --- 4. STYLING ---
+  // --- 4. STYLING OBJECTS ---
   const styles = {
-    header: { textAlign: 'center', color: 'white', background: '#1b5e20', padding: '60px 20px', borderBottom: '6px solid #f9a825' },
+    hero: { textAlign: 'center', color: 'white', background: '#1b5e20', padding: '60px 20px', borderBottom: '6px solid #f9a825' },
     nav: { background: '#1b5e20', padding: '15px', textAlign: 'center', position: 'sticky', top: 0, zIndex: 1000 },
     section: { padding: '40px 20px', maxWidth: '1000px', margin: '0 auto' },
     grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' },
     card: { borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.1)', backgroundColor: '#fff' },
-    media: { width: '100%', height: '220px', objectFit: 'cover' }
+    media: { width: '100%', height: '220px', objectFit: 'cover' },
+    headerStyle: { color: '#1b5e20', borderLeft: '8px solid #f9a825', paddingLeft: '15px', fontSize: '2rem', marginBottom: '30px', fontWeight: '700' }
   };
 
-  // --- 5. RENDER ---
   return (
     <div style={{ backgroundColor: '#fdfbf7', minHeight: '100vh', paddingBottom: '50px', fontFamily: 'Segoe UI' }}>
       
-      {/* LANGUAGE */}
+      {/* LANGUAGE SWITCHER */}
       <div style={{ textAlign: 'right', padding: '10px' }}>
         {['en', 'de', 'fr'].map(l => (
           <button key={l} onClick={() => setLang(l)} style={{ margin: '5px' }}>{l.toUpperCase()}</button>
         ))}
       </div>
 
-      <header id="home" style={styles.header}>
-        <img src={p('/images/verein-logo.png')} alt="Logo" style={{ height: '120px', borderRadius: '15px' }} />
-        <h1>{t.title}</h1>
+      <header id="home" style={styles.hero}>
+        <img src={p('/images/verein-logo.png')} alt="Logo" style={{ height: '120px', borderRadius: '15px', background: 'white', padding: '10px' }} />
+        <h1 style={{ margin: '20px 0 0 0' }}>{t.title}</h1>
+        <p style={{ color: '#f9a825', fontWeight: 'bold' }}>{t.subtitle}</p>
       </header>
 
       <nav style={styles.nav}>
@@ -147,7 +152,7 @@ export default function App() {
       <main>
         {/* MEETINGS */}
         <section id="meetings" style={styles.section}>
-          <h2>{t.meetingTitle}</h2>
+          <h2 style={styles.headerStyle}>{t.meetingTitle}</h2>
           <div style={styles.grid}>
             {meetingGallery.map((src, i) => <div key={i} style={styles.card}><img src={src} style={styles.media} alt="Meeting" /></div>)}
           </div>
@@ -155,7 +160,7 @@ export default function App() {
 
         {/* KIDS */}
         <section id="kids" style={styles.section}>
-          <h2>{t.kidsTitle}</h2>
+          <h2 style={styles.headerStyle}>{t.kidsTitle}</h2>
           <div style={styles.grid}>
             {kidsGallery.map((item, i) => (
               <div key={i} style={styles.card}>
@@ -167,7 +172,7 @@ export default function App() {
 
         {/* EVENTS */}
         <section id="events" style={styles.section}>
-          <h2>{t.eventsTitle}</h2>
+          <h2 style={styles.headerStyle}>{t.eventsTitle}</h2>
           <div style={styles.grid}>
             {upcomingEvents.map((item, i) => (
               <div key={i} style={styles.card}>
@@ -179,20 +184,17 @@ export default function App() {
 
         {/* GALLERY */}
         <section id="gallery" style={styles.section}>
-          <h2>{t.galleryTitle}</h2>
+          <h2 style={styles.headerStyle}>{t.galleryTitle}</h2>
           <div style={styles.grid}>
             {mainGallery.map((src, i) => <div key={i} style={styles.card}><img src={src} style={styles.media} alt="Gallery" /></div>)}
           </div>
         </section>
 
-        {/* REGISTER */}
+        {/* SUPPORT */}
         <section id="support" style={styles.section}>
-          <div style={{ backgroundColor: '#fff', padding: '40px', borderRadius: '25px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-            <h3>{t.registerTitle}</h3>
-            <form onSubmit={handleRegister} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <input type="text" placeholder="Name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} style={{ padding: '10px' }} />
-              <button type="submit" style={{ padding: '10px', backgroundColor: '#f9a825', border: 'none' }}>{t.registerBtn}</button>
-            </form>
+          <div style={{ backgroundColor: '#1b5e20', color: 'white', padding: '40px', borderRadius: '25px', textAlign: 'center' }}>
+            <h3>{t.supportTitle}</h3>
+            <p>IBAN: DE27 1009 0000 7218 2980 06</p>
           </div>
         </section>
       </main>
