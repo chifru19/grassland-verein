@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 
-// --- TRANSLATION DATA ---
+/**
+ * Deutsch-Kamerunischer Kulturverein Website
+ * Version: 2.0.1
+ * This component contains the full structure, trilingual support,
+ * gallery management, and event handling for the organization.
+ */
+
+// --- 1. TRANSLATION DATA ---
 const i18n = {
   en: {
     nav: { home: "Home", meetings: "Meetings", kids: "Kids", gallery: "Gallery", support: "Support" },
@@ -46,6 +53,7 @@ const i18n = {
   }
 };
 
+// --- 2. MAIN COMPONENT ---
 export default function App() {
   const [lang, setLang] = useState('en');
   const [formData, setFormData] = useState({ name: '', email: '' });
@@ -65,16 +73,17 @@ export default function App() {
     'assets/meeting-10.jpg'
   ];
 
+  // Updated Kids Gallery: 2 Videos + 4 Images
   const kidsGalleryItems = [
-    { type: 'image', src: 'images/kids-01.jpg' },
     { type: 'video', src: 'videos/kids-activity-01.mp4' },
+    { type: 'video', src: 'videos/kids-dance-event.mp4' },
+    { type: 'image', src: 'images/kids-01.jpg' },
     { type: 'image', src: 'images/kids-03.jpg' },
     { type: 'image', src: 'images/kids-04.jpg' },
-    { type: 'image', src: 'images/kids-05.jpg' },
-    { type: 'image', src: 'images/kids-06.jpg' }
+    { type: 'image', src: 'images/kids-05.jpg' }
   ];
 
-  // --- FUNCTIONS ---
+  // --- CORE FUNCTIONS ---
   const scrollTo = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -88,12 +97,13 @@ export default function App() {
     setFormData({ name: '', email: '' });
   };
 
-  // --- STYLES ---
+  // --- STYLING CONSTANTS ---
   const sectionHeaderStyle = { color: '#1b5e20', borderLeft: '8px solid #f9a825', paddingLeft: '15px', fontSize: '2rem', marginBottom: '30px', fontWeight: '700' };
   const navItemStyle = { cursor: 'pointer', padding: '10px 15px', fontWeight: 'bold', color: 'white', fontSize: '0.9rem' };
   const imgCardStyle = { overflow: 'hidden', borderRadius: '20px', boxShadow: '0 8px 25px rgba(0,0,0,0.1)', backgroundColor: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center' };
   const mediaStyle = { width: '100%', height: '220px', objectFit: 'cover' };
 
+  // --- RENDER COMPONENT ---
   return (
     <div style={{ backgroundColor: '#fdfbf7', color: '#2c3e50', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
       
@@ -104,14 +114,14 @@ export default function App() {
         ))}
       </div>
 
-      {/* HERO */}
+      {/* HERO SECTION */}
       <header id="home" style={{ textAlign: 'center', color: 'white', borderBottom: '6px solid #f9a825', background: '#1b5e20', padding: '80px 20px' }}>
         <img src="images/verein-logo.png" alt="Logo" style={{ height: '150px', borderRadius: '15px', backgroundColor: 'white', padding: '10px', marginBottom: '20px' }} />
         <h1 style={{ margin: 0 }}>{t.title}</h1>
         <p style={{ color: '#f9a825', fontWeight: 'bold' }}>{t.subtitle}</p>
       </header>
 
-      {/* NAV */}
+      {/* NAVIGATION BAR */}
       <nav style={{ backgroundColor: '#1b5e20', display: 'flex', justifyContent: 'center', padding: '10px', position: 'sticky', top: 0, zIndex: 1000 }}>
         {Object.entries(t.nav).map(([key, label]) => (
           <span key={key} onClick={() => scrollTo(key)} style={navItemStyle}>{label}</span>
@@ -120,7 +130,7 @@ export default function App() {
 
       <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
         
-        {/* MEETINGS */}
+        {/* MEETINGS SECTION */}
         <section id="meetings" style={{ marginBottom: '80px' }}>
           <h2 style={sectionHeaderStyle}>{t.meetingTitle}</h2>
           <div style={{ background: '#fff', padding: '40px', borderRadius: '25px', border: '1px solid #eee', marginBottom: '30px' }}>
@@ -134,7 +144,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* KIDS */}
+        {/* KIDS & YOUTH SECTION */}
         <section id="kids" style={{ marginBottom: '80px' }}>
           <h2 style={sectionHeaderStyle}>{t.kidsTitle}</h2>
           <p style={{ marginBottom: '30px' }}>{t.kidsDesc}</p>
@@ -144,30 +154,30 @@ export default function App() {
                 {item.type === 'video' ? (
                   <video controls style={mediaStyle}><source src={item.src} type="video/mp4" /></video>
                 ) : (
-                  <img src={item.src} alt="Kids" style={mediaStyle} />
+                  <img src={item.src} alt="Kids Section Content" style={mediaStyle} />
                 )}
               </div>
             ))}
           </div>
         </section>
 
-        {/* GALLERY */}
+        {/* GENERAL GALLERY SECTION */}
         <section id="gallery" style={{ marginBottom: '80px' }}>
           <h2 style={sectionHeaderStyle}>{t.galleryTitle}</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
             {mainGalleryImages.map((src, idx) => (
-              <div key={idx} style={imgCardStyle}><img src={src} alt="Gallery" style={{ width: '100%', height: '280px', objectFit: 'cover' }} /></div>
+              <div key={idx} style={imgCardStyle}><img src={src} alt="Gallery Event" style={{ width: '100%', height: '280px', objectFit: 'cover' }} /></div>
             ))}
           </div>
         </section>
 
-        {/* SUPPORT */}
+        {/* SUPPORT SECTION */}
         <section id="support" style={{ backgroundColor: '#1b5e20', color: 'white', padding: '60px', borderRadius: '40px', textAlign: 'center' }}>
           <h2>{t.supportTitle}</h2>
           <p>IBAN: DE27 1009 0000 7218 2980 06</p>
         </section>
 
-        {/* FOOTER */}
+        {/* REGISTRATION FOOTER */}
         <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', marginTop: '40px' }}>
           <div style={{ backgroundColor: '#fff', padding: '40px', borderRadius: '25px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
             <h3>{t.registerTitle}</h3>
@@ -179,8 +189,9 @@ export default function App() {
         </section>
       </main>
 
+      {/* FOOTER */}
       <footer style={{ textAlign: 'center', padding: '40px' }}>
-        <p>© 2026 Deutsch-Kamerunischer Kulturverein.</p>
+        <p>© 2026 Deutsch-Kamerunischer Kulturverein. All Rights Reserved.</p>
       </footer>
     </div>
   );
