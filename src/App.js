@@ -1,91 +1,93 @@
 import React, { useState } from 'react';
 
-export default function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: ''
-  });
+/**
+ * App.js - Deutsch-Kamerunischer Kulturverein Grassland e.V.
+ * Full Production Version - Including Exco List, Labour Day Greeting, and Expanded Kids Section
+ */
 
-  // Language state: 'de', 'en', 'fr'
+export default function App() {
+  const [formData, setFormData] = useState({ name: '', email: '' });
   const [lang, setLang] = useState('de');
 
-  // Localization Content
-  const content = {
+  // --- TRILINGUAL CONTENT OBJECT ---
+  const t = {
     de: {
-      home: "Home", meetings: "Treffen", meetingGallery: "Treffen Galerie", kids: "Kinderbereich", 
-      gallery: "Allgemeine Galerie", support: "Unterstützung", register: "Registrieren",
-      upcoming: "Kommende Veranstaltungen", registerTitle: "Werden Sie Mitglied",
-      flyerBtn: "Flyer Herunterladen"
+      navHome: "Home", navMeetings: "Treffen", navEvents: "Veranstaltungen", 
+      navKids: "Kinderbereich", navGallery: "Galerie", navSupport: "Unterstützung",
+      heroTitle: "Deutsch-Kamerunischer Kulturverein", 
+      heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
+      labourDay: "Guten Abend und einen schönen Tag der Arbeit!",
+      excoTitle: "Vorstandsmitglieder (Exco)",
+      meetingsTitle: "Monatliche Treffen", 
+      meetingsDesc: "Jeden zweiten Samstag im Monat – Kommen Sie vorbei für den gemeinschaftlichen Dialog.",
+      meetingGalleryHighlights: "Aktuelle Meeting-Highlights",
+      eventsTitle: "Kommende Veranstaltungen", featuredEvent: "Nächste Veranstaltung",
+      eventsDesc: "Besuchen Sie unsere nächste Zusammenkunft. Laden Sie den Flyer für weitere Details herunter.",
+      kidsTitle: "Kinder & Jugend", 
+      kidsDesc: "Bewahrung unseres Erbes für die nächste Generation durch Sprache, Tanz und Geschichtenerzählen.",
+      galleryTitle: "Allgemeine Event-Galerie",
+      supportTitle: "Unterstützen Sie unsere Mission",
+      donateText: "ZUM SPENDEN SCANNEN", bankText: "Bank: BERLINER VOLKSBANK",
+      registerTitle: "Werden Sie Mitglied", registerBtn: "Registrieren", 
+      namePlaceholder: "Vollständiger Name", emailPlaceholder: "E-Mail-Adresse",
+      flyerBtn: "Flyer Herunterladen", footerText: "Alle Rechte vorbehalten.", admin: "Website Admin"
     },
     en: {
-      home: "Home", meetings: "Meetings", meetingGallery: "Meeting Gallery", kids: "Kids Section", 
-      gallery: "General Gallery", support: "Support Us", register: "Register",
-      upcoming: "Upcoming Events", registerTitle: "Become a Member",
-      flyerBtn: "Download Flyer"
+      navHome: "Home", navMeetings: "Meetings", navEvents: "Events", 
+      navKids: "Kids Section", navGallery: "Gallery", navSupport: "Support Us",
+      heroTitle: "German-Cameroonian Cultural Association", 
+      heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
+      labourDay: "Good evening and happy Labour Day!",
+      excoTitle: "Executive Committee (Exco)",
+      meetingsTitle: "Monthly Meeting Sessions", 
+      meetingsDesc: "Every Second Saturday of the Month – Join us for our community dialogue.",
+      meetingGalleryHighlights: "Recent Meeting Highlights",
+      eventsTitle: "Upcoming Events", featuredEvent: "Featured Event",
+      eventsDesc: "Join us for our upcoming community gathering. Download the flyer for full details.",
+      kidsTitle: "Kids & Youth Section", 
+      kidsDesc: "Preserving our heritage for the next generation through language, dance, and storytelling.",
+      galleryTitle: "General Event Gallery",
+      supportTitle: "Support Our Mission",
+      donateText: "SCAN TO DONATE", bankText: "Bank: BERLINER VOLKSBANK",
+      registerTitle: "Become a Member", registerBtn: "Register", 
+      namePlaceholder: "Full Name", emailPlaceholder: "Email Address",
+      flyerBtn: "Download Flyer", footerText: "All Rights Reserved.", admin: "Website Admin"
     },
     fr: {
-      home: "Accueil", meetings: "Réunions", meetingGallery: "Galerie des réunions", kids: "Section Enfants", 
-      gallery: "Galerie Générale", support: "Soutenez-nous", register: "S'inscrire",
-      upcoming: "Événements à venir", registerTitle: "Devenir Membre",
-      flyerBtn: "Télécharger le Flyer"
+      navHome: "Accueil", navMeetings: "Réunions", navEvents: "Événements", 
+      navKids: "Section Enfants", navGallery: "Galerie", navSupport: "Soutenez-nous",
+      heroTitle: "Association Culturelle Germano-Camerounaise", 
+      heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
+      labourDay: "Bonsoir et bonne Fête du Travail !",
+      excoTitle: "Membres du bureau exécutif (Exco)",
+      meetingsTitle: "Réunions Mensuelles", 
+      meetingsDesc: "Chaque deuxième samedi du mois – Rejoignez-nous pour le dialogue communautaire.",
+      meetingGalleryHighlights: "Faits saillants des réunions",
+      eventsTitle: "Événements à Venir", featuredEvent: "Événement en vedette",
+      eventsDesc: "Rejoignez-nous pour notre prochain rassemblement. Téléchargez le flyer pour plus de détails.",
+      kidsTitle: "Section Enfants et Jeunes", 
+      kidsDesc: "Préserver notre héritage pour la prochaine génération à travers la langue, la danse et les contes.",
+      galleryTitle: "Galerie Générale des Événements",
+      supportTitle: "Soutenez notre Mission",
+      donateText: "SCANNEZ POUR DONNER", bankText: "Banque : BERLINER VOLKSBANK",
+      registerTitle: "Devenir Membre", registerBtn: "S'inscrire", 
+      namePlaceholder: "Nom complet", emailPlaceholder: "Adresse e-mail",
+      flyerBtn: "Télécharger le Flyer", footerText: "Tous droits réservés.", admin: "Admin du site"
     }
   };
 
-  const t = content[lang];
+  const c = t[lang];
 
-  const scrollTo = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const yOffset = -80;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-  };
-
-  const handleRegister = (e) => {
-    e.preventDefault();
-    alert(`Thank you, ${formData.name}! Your registration has been received.`);
-    setFormData({ name: '', email: '' });
-  };
-
-  // --- STYLES ---
-  const sectionHeaderStyle = {
-    color: '#1b5e20',
-    borderLeft: '8px solid #f9a825',
-    paddingLeft: '15px',
-    fontSize: '2.4rem',
-    marginBottom: '30px',
-    fontWeight: '700'
-  };
-
-  const navItemStyle = {
-    cursor: 'pointer',
-    padding: '10px 15px',
-    fontWeight: 'bold',
-    transition: '0.3s',
-    fontSize: '0.9rem',
-    whiteSpace: 'nowrap'
-  };
-
-  const gridStyle = {
-    display: 'grid', 
-    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-    gap: '20px'
-  };
-
-  const cardStyle = {
-    overflow: 'hidden', 
-    borderRadius: '20px', 
-    boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
-    backgroundColor: '#fff',
-    transition: 'transform 0.3s ease'
-  };
-
-  // --- ASSET REPOSITORIES ---
-  const mainGalleryImages = [
-    'images/ngoteh-leadership.jpg', 'images/ngoteh-01.jpg', 'images/ngoteh-02.jpg', 
-    'images/ngoteh-03.jpg', 'images/ngoteh-04.jpg', 'images/ngoteh-05.jpg',
-    'images/ngoteh-06.jpg', 'images/ngoteh-07.jpg'
+  // --- DATA REPOSITORIES ---
+  const excoData = [
+    { pos: "President", name: "Mr. CHENYE FREDERICK" },
+    { pos: "Vice President", name: "Mr. NJAFUH BOBGA ROLAND" },
+    { pos: "Secretary General", name: "DEACONESS THERESA EKPAKUEME" },
+    { pos: "Vice Secretary General", name: "Ms. SEDONI ABAH" },
+    { pos: "Financial Secretary", name: "Ms. LOVELINE MBETIJI FOMUSO" },
+    { pos: "Treasurer", name: "Mr. NGASSA ERENRST" },
+    { pos: "Social Secretary", name: ["MR. TEMBU FRANCIS", "MR. KANGKANG EVARISTUS", "MS RUTH YEBAH"] },
+    { pos: "Protocol Officer", name: "Mr. NJI ERIC" }
   ];
 
   const meetingGalleryImages = [
@@ -95,95 +97,120 @@ export default function App() {
     'assets/meeting-10.jpg'
   ];
 
-  // Updated to Videos for Kids Section
-  const kidsVideos = [
-    'videos/kids-01.mp4', 'videos/kids-02.mp4', 'videos/kids-03.mp4', 
-    'videos/kids-04.mp4', 'videos/kids-05.mp4', 'videos/kids-06.mp4'
+  const mainGalleryImages = [
+    'images/ngoteh-leadership.jpg', 'images/ngoteh-01.jpg', 'images/ngoteh-02.jpg', 
+    'images/ngoteh-03.jpg', 'images/ngoteh-04.jpg', 'images/ngoteh-05.jpg',
+    'images/ngoteh-06.jpg', 'images/ngoteh-07.jpg'
   ];
 
+  // Expanded Kids Section to 12 slots
+  const kidsVideos = [
+    'videos/kids-01.mp4', 'videos/kids-02.mp4', 'videos/kids-03.mp4', 
+    'videos/kids-04.mp4', 'videos/kids-05.mp4', 'videos/kids-06.mp4',
+    'videos/kids-07.mp4', 'videos/kids-08.mp4', 'videos/kids-09.mp4',
+    'videos/kids-10.mp4', 'videos/kids-11.mp4', 'videos/kids-12.mp4'
+  ];
+
+  // --- STYLES ---
+  const sectionHeaderStyle = { color: '#1b5e20', borderLeft: '8px solid #f9a825', paddingLeft: '15px', fontSize: '2.4rem', marginBottom: '30px' };
+  const cardStyle = { borderRadius: '20px', overflow: 'hidden', boxShadow: '0 8px 25px rgba(0,0,0,0.1)', backgroundColor: '#fff', padding: '20px' };
+  const navBtnStyle = { cursor: 'pointer', background: 'transparent', border: '1px solid white', color: 'white', borderRadius: '4px', padding: '5px 8px', margin: '0 5px', fontWeight: 'bold' };
+
+  // --- UTILITY ---
+  const getPath = (path) => `${process.env.PUBLIC_URL}/${path}`;
+  const scrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({ top: element.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+    }
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    alert(`Thank you, ${formData.name}!`);
+    setFormData({ name: '', email: '' });
+  };
+
   return (
-    <div className="App" style={{ backgroundColor: '#fdfbf7', color: '#2c3e50', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
-      <style>{`
-        .video-card:hover { transform: scale(1.03); cursor: pointer; }
-        .lang-btn { cursor: pointer; background: #f9a825; border: none; border-radius: 4px; padding: 5px 8px; margin: 0 4px; font-weight: bold; }
-      `}</style>
+    <div style={{ backgroundColor: '#fdfbf7', color: '#2c3e50', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
+      <style>{`.hover-card:hover { transform: scale(1.03); transition: 0.3s; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }`}</style>
       
-      {/* --- HERO --- */}
-      <header id="home" style={{ 
-        textAlign: 'center', color: 'white', borderBottom: '6px solid #f9a825',
-        background: `linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.85)), url('images/ngoteh-event-01.jpg')`, 
-        backgroundSize: 'cover', backgroundPosition: 'center', padding: '80px 20px' 
-      }}>
-        <div style={{ marginBottom: '30px' }}>
-          <img src="images/verein-logo.png" alt="Logo" style={{ height: '180px', borderRadius: '15px', backgroundColor: 'white', padding: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} />
-        </div>
-        <h1 style={{ fontSize: '2.8rem', margin: '0', fontWeight: '800' }}>Deutsch-Kamerunischer Kultur-Vereins</h1>
-        <p style={{ fontSize: '1.2rem', color: '#f9a825', marginTop: '15px', fontWeight: 'bold' }}>Sprengelstr. 15, 13353 Berlin</p>
+      {/* --- HEADER --- */}
+      <header id="home" style={{ textAlign: 'center', color: 'white', borderBottom: '6px solid #f9a825', padding: '80px 20px', background: `linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.85)), url('${getPath('images/ngoteh-event-01.jpg')}')`, backgroundSize: 'cover' }}>
+        <img src={getPath('images/verein-logo.png')} alt="Logo" style={{ height: '180px', borderRadius: '15px', backgroundColor: 'white', padding: '15px' }} />
+        <h1 style={{ fontSize: '2.8rem', margin: '20px 0 0 0' }}>{c.heroTitle}</h1>
+        <p style={{ color: '#f9a825', fontWeight: 'bold' }}>{c.heroSubtitle}</p>
       </header>
 
-      {/* --- REACTIVE NAV --- */}
-      <nav style={{ backgroundColor: '#1b5e20', padding: '10px', color: 'white', display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '10px', position: 'sticky', top: 0, zIndex: 1000 }}>
-        <span onClick={() => scrollTo('home')} style={navItemStyle}>{t.home}</span>
-        <span onClick={() => scrollTo('meetings')} style={navItemStyle}>{t.meetings}</span>
-        <span onClick={() => scrollTo('events')} style={navItemStyle}>{t.upcoming}</span>
-        <span onClick={() => scrollTo('kids')} style={navItemStyle}>{t.kids}</span>
-        <span onClick={() => scrollTo('gallery')} style={navItemStyle}>{t.gallery}</span>
-        <div style={{ marginLeft: '20px' }}>
-          <button className="lang-btn" onClick={() => setLang('de')}>DE</button>
-          <button className="lang-btn" onClick={() => setLang('en')}>EN</button>
-          <button className="lang-btn" onClick={() => setLang('fr')}>FR</button>
+      {/* --- NAVIGATION --- */}
+      <nav style={{ backgroundColor: '#1b5e20', padding: '15px', position: 'sticky', top: 0, zIndex: 1000, display: 'flex', justifyContent: 'center', gap: '15px', color: 'white', flexWrap: 'wrap' }}>
+        <span onClick={() => scrollTo('home')} style={{cursor:'pointer', fontWeight:'bold'}}>{c.navHome}</span>
+        <span onClick={() => scrollTo('exco')} style={{cursor:'pointer', fontWeight:'bold'}}>Exco</span>
+        <span onClick={() => scrollTo('meetings')} style={{cursor:'pointer', fontWeight:'bold'}}>{c.navMeetings}</span>
+        <span onClick={() => scrollTo('events')} style={{cursor:'pointer', fontWeight:'bold'}}>{c.navEvents}</span>
+        <span onClick={() => scrollTo('kids')} style={{cursor:'pointer', fontWeight:'bold'}}>{c.navKids}</span>
+        <span onClick={() => scrollTo('gallery')} style={{cursor:'pointer', fontWeight:'bold'}}>{c.navGallery}</span>
+        <div style={{ marginLeft: '10px' }}>
+          <button onClick={() => setLang('de')} style={navBtnStyle}>DE</button>
+          <button onClick={() => setLang('en')} style={navBtnStyle}>EN</button>
+          <button onClick={() => setLang('fr')} style={navBtnStyle}>FR</button>
         </div>
       </nav>
 
       <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
         
-        {/* --- MEETINGS --- */}
-        <section id="meetings" style={{ marginBottom: '80px' }}>
-          <h2 style={sectionHeaderStyle}>{t.meetings}</h2>
-          <div style={{ background: '#fff', padding: '40px', borderRadius: '25px', border: '1px solid #eee', marginBottom: '30px' }}>
-            <h3 style={{ color: '#e65100' }}>Every Second Saturday of the Month</h3>
-            <p style={{ fontSize: '1.2rem' }}>Join us for community dialogue at <strong>Sprengelstr. 15, 13353 Berlin</strong>.</p>
-          </div>
-
-          <div id="meeting-gallery" style={{ scrollMarginTop: '120px' }}>
-            <h4 style={{ color: '#1b5e20', fontWeight: 'bold', marginBottom: '20px' }}>Recent Meeting Highlights</h4>
-            <div style={gridStyle}>
-              {meetingGalleryImages.map((src, idx) => (
-                <div key={idx} style={cardStyle}>
-                  <img src={src} alt={`Meeting ${idx + 1}`} style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
-                </div>
-              ))}
-            </div>
+        {/* --- LABOUR DAY & EXCO SECTION --- */}
+        <section id="exco" style={{ marginBottom: '80px', padding: '40px', background: '#e8f5e9', borderRadius: '30px' }}>
+          <h3 style={{ color: '#1b5e20', marginBottom: '20px' }}>{c.labourDay} 🎉</h3>
+          <h2 style={{ color: '#1b5e20', borderBottom: '3px solid #f9a825', display: 'inline-block', marginBottom: '30px' }}>{c.excoTitle}</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+            {excoData.map((m, i) => (
+              <div key={i} style={{ marginBottom: '10px', fontSize: '1.1rem' }}>
+                <strong>{m.pos}:</strong> {Array.isArray(m.name) ? m.name.join(', ') : m.name}
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* --- UPCOMING EVENTS (NEW) --- */}
+        {/* --- MEETINGS SECTION --- */}
+        <section id="meetings" style={{ marginBottom: '80px' }}>
+          <h2 style={sectionHeaderStyle}>{c.meetingsTitle}</h2>
+          <div style={{ background: '#fff', padding: '40px', borderRadius: '25px', marginBottom: '30px', border: '1px solid #eee' }}>
+            <p style={{fontSize:'1.2rem'}}>{c.meetingsDesc}</p>
+          </div>
+          <h4 style={{ color: '#1b5e20', fontWeight: 'bold', marginBottom: '20px' }}>{c.meetingGalleryHighlights}</h4>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            {meetingGalleryImages.map((src, i) => (
+              <img key={i} src={getPath(src)} alt="Meeting" style={{ width: '100%', borderRadius: '20px', height: '220px', objectFit: 'cover' }} className="hover-card" />
+            ))}
+          </div>
+        </section>
+
+        {/* --- EVENTS SECTION --- */}
         <section id="events" style={{ marginBottom: '80px' }}>
-          <h2 style={sectionHeaderStyle}>{t.upcoming}</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', background: '#fff', padding: '30px', borderRadius: '25px', border: '1px solid #eee' }}>
-            <video controls style={{ width: '100%', borderRadius: '15px', backgroundColor: '#000' }}>
-              <source src="videos/upcoming-event.mp4" type="video/mp4" />
+          <h2 style={sectionHeaderStyle}>{c.eventsTitle}</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '30px', background: '#fff', padding: '30px', borderRadius: '25px', border: '1px solid #eee' }}>
+            <video controls style={{ width: '100%', borderRadius: '15px', background: '#000' }}>
+              <source src={getPath('videos/upcoming-event.mp4')} type="video/mp4" />
             </video>
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <h3>Featured Event</h3>
-              <p>Join us for our upcoming community gathering. See the flyer for full details.</p>
-              <a href="assets/event-flyer.pdf" download style={{ padding: '15px', backgroundColor: '#f9a825', color: '#1b5e20', borderRadius: '10px', textDecoration: 'none', fontWeight: '800', textAlign: 'center', marginTop: '10px' }}>
-                {t.flyerBtn}
+            <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <h3 style={{color:'#e65100'}}>{c.featuredEvent}</h3>
+              <p>{c.eventsDesc}</p>
+              <a href={getPath('assets/event-flyer.pdf')} download style={{ padding: '15px', backgroundColor: '#f9a825', color: '#1b5e20', borderRadius: '10px', textDecoration: 'none', fontWeight: '800', textAlign: 'center' }}>
+                {c.flyerBtn}
               </a>
             </div>
           </div>
         </section>
 
-        {/* --- KIDS SECTION (VIDEOS) --- */}
+        {/* --- KIDS SECTION --- */}
         <section id="kids" style={{ marginBottom: '80px' }}>
-          <h2 style={sectionHeaderStyle}>{t.kids}</h2>
-          <div style={{ background: '#fff', padding: '30px', borderRadius: '25px', marginBottom: '30px', border: '1px solid #eee' }}>
-            <p style={{ fontSize: '1.1rem' }}>Preserving our heritage for the next generation through language, dance, and storytelling.</p>
-          </div>
-          <div style={gridStyle}>
-            {kidsVideos.map((src, idx) => (
-              <div key={idx} className="video-card" style={cardStyle}>
-                <video src={src} controls style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+          <h2 style={sectionHeaderStyle}>{c.kidsTitle}</h2>
+          <div style={{ background: '#fff', padding: '30px', borderRadius: '25px', marginBottom: '20px', border: '1px solid #eee' }}><p>{c.kidsDesc}</p></div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
+            {kidsVideos.map((src, i) => (
+              <div key={i} className="hover-card" style={cardStyle}>
+                <video src={getPath(src)} controls style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
               </div>
             ))}
           </div>
@@ -191,55 +218,51 @@ export default function App() {
 
         {/* --- GENERAL GALLERY --- */}
         <section id="gallery" style={{ marginBottom: '80px' }}>
-          <h2 style={sectionHeaderStyle}>{t.gallery}</h2>
-          <div style={gridStyle}>
-            {mainGalleryImages.map((src, idx) => (
-              <div key={idx} style={cardStyle}>
-                <img src={src} alt="Gallery" style={{ width: '100%', height: '280px', objectFit: 'cover' }} />
-              </div>
+          <h2 style={sectionHeaderStyle}>{c.galleryTitle}</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            {mainGalleryImages.map((src, i) => (
+              <img key={i} src={getPath(src)} alt="Gallery" style={{ width: '100%', borderRadius: '20px', height: '280px', objectFit: 'cover' }} className="hover-card" />
             ))}
           </div>
         </section>
 
-        {/* --- SUPPORT --- */}
-        <section id="support" style={{ marginBottom: '80px', backgroundColor: '#1b5e20', color: 'white', padding: '60px 20px', borderRadius: '40px', textAlign: 'center' }}>
-          <h2 style={{ color: '#f9a825', fontSize: '2.5rem', marginBottom: '30px' }}>Support Our Mission</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderRadius: '20px' }}>
-              <img src="images/qr-code.jpg" alt="Donate" style={{ width: '180px', height: '180px' }} />
-              <p style={{ color: '#333', fontWeight: '800', marginTop: '10px' }}>SCAN TO DONATE</p>
-            </div>
-            <div style={{ fontSize: '1.2rem' }}>
-              <p><strong>Bank: BERLINER VOLKSBANK</strong></p>
-              <p>IBAN: DE27 1009 0000 7218 2980 06</p>
-            </div>
+        {/* --- SUPPORT SECTION --- */}
+        <section id="support" style={{ textAlign: 'center', padding: '60px', background: '#1b5e20', borderRadius: '40px', color: 'white', marginBottom: '80px' }}>
+          <h2 style={{ color: '#f9a825' }}>{c.supportTitle}</h2>
+          <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '20px', display: 'inline-block' }}>
+            <img src={getPath('images/qr-code.jpg')} alt="Donate" style={{ width: '200px', height: '200px' }} />
+            <p style={{ color: '#333', fontWeight: '800', marginTop: '10px' }}>{c.donateText}</p>
+          </div>
+          <div style={{ marginTop: '20px' }}>
+            <p><strong>{c.bankText}</strong></p>
+            <p>IBAN: DE27 1009 0000 7218 2980 06</p>
           </div>
         </section>
 
         {/* --- FOOTER CONTENT --- */}
-        <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
-          <div style={{ backgroundColor: '#fff', padding: '40px', borderRadius: '25px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-            <h3>{t.registerTitle}</h3>
+        <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', paddingBottom: '50px' }}>
+          <div style={cardStyle}>
+            <h3>{c.registerTitle}</h3>
             <form onSubmit={handleRegister} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              <input type="text" placeholder="Full Name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} style={{ padding: '15px', borderRadius: '10px', border: '1px solid #ddd' }} />
-              <input type="email" placeholder="Email Address" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} style={{ padding: '15px', borderRadius: '10px', border: '1px solid #ddd' }} />
-              <button type="submit" style={{ backgroundColor: '#f9a825', color: '#1b5e20', padding: '15px', fontWeight: '800', border: 'none', borderRadius: '10px', cursor: 'pointer' }}>{t.register}</button>
+              <input type="text" placeholder={c.namePlaceholder} required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} style={{ padding: '15px', borderRadius: '10px', border: '1px solid #eee' }} />
+              <input type="email" placeholder={c.emailPlaceholder} required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} style={{ padding: '15px', borderRadius: '10px', border: '1px solid #eee' }} />
+              <button type="submit" style={{ backgroundColor: '#f9a825', color: '#1b5e20', padding: '15px', border: 'none', borderRadius: '10px', fontWeight: '800', cursor: 'pointer' }}>{c.registerBtn}</button>
             </form>
           </div>
           <div style={{ padding: '20px' }}>
             <p><strong>Amtsgericht Charlottenburg</strong> | VR 23156</p>
-            <p style={{ marginTop: '20px' }}><strong>Website Admin:</strong></p>
-            <a href="https://frankfru.com" target="_blank" rel="noreferrer" style={{ color: '#1b5e20', textDecoration: 'none', fontWeight: '800', borderBottom: '2px solid #f9a825' }}>frankfru.com</a>
-            <p style={{ marginTop: '10px' }}>
-              <a href="https://github.com/chifru19" target="_blank" rel="noreferrer" style={{ color: '#2c3e50', fontSize: '0.9rem', marginRight: '10px', textDecoration: 'none' }}>GitHub</a> | 
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ color: '#2c3e50', fontSize: '0.9rem', marginLeft: '10px', textDecoration: 'none' }}>LinkedIn</a>
-            </p>
+            <p><strong>{c.admin}:</strong></p>
+            <a href="https://frankfru.com" target="_blank" rel="noreferrer" style={{ color: '#1b5e20', fontWeight: '800', textDecoration: 'none' }}>frankfru.com</a>
+            <div style={{ marginTop: '10px' }}>
+              <a href="https://github.com/chifru19" target="_blank" rel="noreferrer" style={{ marginRight: '10px', textDecoration:'none' }}>GitHub</a>
+              <a href="https://www.linkedin.com/in/frankfru/" target="_blank" rel="noreferrer" style={{textDecoration:'none'}}>LinkedIn</a>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer style={{ textAlign: 'center', padding: '40px 20px', borderTop: '1px solid #eee' }}>
-        <p>© 2026 Deutsch-Kamerunischer Kultur-Vereins. All Rights Reserved.</p>
+      <footer style={{ textAlign: 'center', padding: '20px', borderTop: '1px solid #eee', fontSize: '0.9rem' }}>
+        <p>© 2026 Deutsch-Kamerunischer Kulturverein. {c.footerText}</p>
       </footer>
     </div>
   );
