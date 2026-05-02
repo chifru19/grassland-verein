@@ -60,6 +60,9 @@ const data = {
       { "type": "video", "src": "/videos/kids-09.mp4" }, { "type": "video", "src": "/videos/kids-10.mp4" },
       { "type": "video", "src": "/videos/kids-11.mp4" }, { "type": "video", "src": "/videos/kids-12.mp4" }
     ]
+  },
+  "events": {
+    "video": "/videos/upcoming-event.mp4"
   }
 };
 
