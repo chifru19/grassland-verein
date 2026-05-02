@@ -55,10 +55,7 @@ const data = {
     "kids": [
       { "type": "video", "src": "/videos/kids-01.mp4" }, { "type": "video", "src": "/videos/kids-02.mp4" },
       { "type": "video", "src": "/videos/kids-03.mp4" }, { "type": "video", "src": "/videos/kids-04.mp4" },
-      { "type": "video", "src": "/videos/kids-05.mp4" }, { "type": "video", "src": "/videos/kids-06.mp4" },
-      { "type": "video", "src": "/videos/kids-07.mp4" }, { "type": "video", "src": "/videos/kids-08.mp4" },
-      { "type": "video", "src": "/videos/kids-09.mp4" }, { "type": "video", "src": "/videos/kids-10.mp4" },
-      { "type": "video", "src": "/videos/kids-11.mp4" }, { "type": "video", "src": "/videos/kids-12.mp4" }
+      { "type": "video", "src": "/videos/kids-05.mp4" }, { "type": "video", "src": "/videos/kids-06.mp4" }
     ]
   },
   "events": {
