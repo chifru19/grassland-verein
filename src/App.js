@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 /**
  * App.js - Deutsch-Kamerunischer Kulturverein Grassland e.V.
- * Full Production Version (Expanded for explicit line count)
+ * Updated Version
  */
 
 export default function App() {
@@ -26,7 +26,6 @@ export default function App() {
       navJoin: "Mitgliedschaft",
       heroTitle: "Deutsch-Kamerunischer Kulturverein",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
-      labourDay: "Guten Abend und einen schönen Tag der Arbeit! 🎉",
       excoTitle: "Vorstandsmitglieder & Ngoteh",
       meetingsTitle: "Monatliche Treffen",
       meetingsDesc: "Jeden zweiten Samstag im Monat – Kommen Sie vorbei für den gemeinschaftlichen Dialog.",
@@ -54,7 +53,6 @@ export default function App() {
       navJoin: "Membership",
       heroTitle: "German-Cameroonian Cultural Association",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
-      labourDay: "Good evening and happy Labour Day! 🎉",
       excoTitle: "Executive Committee & Ngoteh",
       meetingsTitle: "Monthly Meeting Sessions",
       meetingsDesc: "Every Second Saturday of the Month – Join us for our community dialogue.",
@@ -82,7 +80,6 @@ export default function App() {
       navJoin: "Adhésion",
       heroTitle: "Association Culturelle Germano-Camerounaise",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
-      labourDay: "Bonsoir et bonne Fête du Travail ! 🎉",
       excoTitle: "Membres du bureau exécutif & Ngoteh",
       meetingsTitle: "Réunions Mensuelles",
       meetingsDesc: "Chaque deuxième samedi du mois – Rejoignez-nous pour le dialogue communautaire.",
@@ -128,12 +125,6 @@ export default function App() {
     'assets/meeting-07.jpg', 'assets/meeting-08.jpg', 'assets/meeting-09.jpg', 'assets/meeting-10.jpg'
   ];
 
-  const mainGalleryImages = [
-    'images/ngoteh-leadership.jpg', 'images/ngoteh-01.jpg', 'images/ngoteh-02.jpg', 
-    'images/ngoteh-03.jpg', 'images/ngoteh-04.jpg', 'images/ngoteh-05.jpg',
-    'images/ngoteh-06.jpg', 'images/ngoteh-07.jpg'
-  ];
-
   // --- UTILS ---
   const getPath = (path) => `${process.env.PUBLIC_URL}/${path}`;
   const scrollTo = (id) => { 
@@ -167,7 +158,6 @@ export default function App() {
         
         {/* EXCO / LEADERSHIP SECTION */}
         <section id="exco" style={{ marginBottom: '80px', padding: '40px', background: '#e8f5e9', borderRadius: '30px' }}>
-          <h3 style={{ color: '#1b5e20' }}>{c.labourDay}</h3>
           <h2 style={{ color: '#1b5e20', borderBottom: '3px solid #f9a825', display: 'inline-block', marginBottom: '30px' }}>{c.excoTitle}</h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
             {excoData.map((m, i) => <div key={i}><strong>{m.pos}:</strong> {Array.isArray(m.name) ? m.name.join(', ') : m.name}</div>)}
