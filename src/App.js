@@ -88,7 +88,7 @@ export default function App() {
   // --- DATA REPOSITORIES ---
   const excoData = [
     { pos: "President", name: "Mr. CHENYE FREDERICK" },
-    { pos: "Ngoteh Representative", name: "Ngoteh Leadership Team" },
+    { pos: "Ngoteh Representative", name: "Asongwe Onabit" },
     { pos: "Vice President", name: "Mr. NJAFUH BOBGA ROLAND" },
     { pos: "Secretary General", name: "DEACONESS THERESA EKPAKUEME" },
     { pos: "Vice Secretary General", name: "Ms. SEDONI ABAH" },
@@ -141,7 +141,7 @@ export default function App() {
       {/* MAIN CONTENT AREA */}
       <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
         
-        {/* EXCO / LEADERSHIP SECTION */}
+        {/* EXCO SECTION */}
         <section id="exco" style={{ marginBottom: '80px', padding: '40px', background: '#e8f5e9', borderRadius: '30px' }}>
           <h2 style={{ color: '#1b5e20', borderBottom: '3px solid #f9a825', display: 'inline-block', marginBottom: '30px' }}>{c.excoTitle}</h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
@@ -175,7 +175,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* JOIN MEMBERSHIP */}
+        {/* JOIN SECTION */}
         <section id="join" style={{ marginBottom: '80px', padding: '40px', background: '#fff', borderRadius: '30px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
           <h2 style={{ color: '#1b5e20' }}>{c.registerTitle}</h2>
           <form onSubmit={handleRegister}>
