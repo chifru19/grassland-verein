@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 /**
- * App.js - Deutsch-Kamerunischer Kulturverein Grassland e.V.
+ * App.js - German-Grassland e.V. Berlin
  * Full Production Version
  */
 
@@ -19,7 +19,7 @@ export default function App() {
       navHome: "Home", navExco: "Exco", navMeetings: "Treffen",
       navEvents: "Veranstaltungen", navKids: "Kinderbereich",
       navGallery: "Galerie", navSupport: "Unterstützung",
-      navJoin: "Mitgliedschaft", heroTitle: "Deutsch-Kamerunischer Kulturverein",
+      navJoin: "Mitgliedschaft", heroTitle: "German-Grassland e.V. Berlin",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
       excoTitle: "Vorstandsmitglieder & Ngoteh",
       meetingsTitle: "Monatliche Treffen",
@@ -41,7 +41,7 @@ export default function App() {
       navHome: "Home", navExco: "Exco", navMeetings: "Meetings",
       navEvents: "Events", navKids: "Kids Section",
       navGallery: "Gallery", navSupport: "Support Us",
-      navJoin: "Membership", heroTitle: "German-Cameroonian Cultural Association",
+      navJoin: "Membership", heroTitle: "German-Grassland e.V. Berlin",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
       excoTitle: "Executive Committee & Ngoteh",
       meetingsTitle: "Monthly Meeting Sessions",
@@ -63,7 +63,7 @@ export default function App() {
       navHome: "Accueil", navExco: "Exco", navMeetings: "Réunions",
       navEvents: "Événements", navKids: "Section Enfants",
       navGallery: "Galerie", navSupport: "Soutenez-nous",
-      navJoin: "Adhésion", heroTitle: "Association Culturelle Germano-Camerounaise",
+      navJoin: "Adhésion", heroTitle: "German-Grassland e.V. Berlin",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
       excoTitle: "Membres du bureau exécutif & Ngoteh",
       meetingsTitle: "Réunions Mensuelles",
