@@ -16,15 +16,10 @@ export default function App() {
   // --- TRILINGUAL CONTENT OBJECT ---
   const t = {
     de: {
-      navHome: "Home",
-      navExco: "Exco",
-      navMeetings: "Treffen",
-      navEvents: "Veranstaltungen",
-      navKids: "Kinderbereich",
-      navGallery: "Galerie",
-      navSupport: "Unterstützung",
-      navJoin: "Mitgliedschaft",
-      heroTitle: "Deutsch-Kamerunischer Kulturverein",
+      navHome: "Home", navExco: "Exco", navMeetings: "Treffen",
+      navEvents: "Veranstaltungen", navKids: "Kinderbereich",
+      navGallery: "Galerie", navSupport: "Unterstützung",
+      navJoin: "Mitgliedschaft", heroTitle: "Deutsch-Kamerunischer Kulturverein",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
       excoTitle: "Vorstandsmitglieder & Ngoteh",
       meetingsTitle: "Monatliche Treffen",
@@ -43,15 +38,10 @@ export default function App() {
       admin: "Website Admin"
     },
     en: {
-      navHome: "Home",
-      navExco: "Exco",
-      navMeetings: "Meetings",
-      navEvents: "Events",
-      navKids: "Kids Section",
-      navGallery: "Gallery",
-      navSupport: "Support Us",
-      navJoin: "Membership",
-      heroTitle: "German-Cameroonian Cultural Association",
+      navHome: "Home", navExco: "Exco", navMeetings: "Meetings",
+      navEvents: "Events", navKids: "Kids Section",
+      navGallery: "Gallery", navSupport: "Support Us",
+      navJoin: "Membership", heroTitle: "German-Cameroonian Cultural Association",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
       excoTitle: "Executive Committee & Ngoteh",
       meetingsTitle: "Monthly Meeting Sessions",
@@ -70,15 +60,10 @@ export default function App() {
       admin: "Website Admin"
     },
     fr: {
-      navHome: "Accueil",
-      navExco: "Exco",
-      navMeetings: "Réunions",
-      navEvents: "Événements",
-      navKids: "Section Enfants",
-      navGallery: "Galerie",
-      navSupport: "Soutenez-nous",
-      navJoin: "Adhésion",
-      heroTitle: "Association Culturelle Germano-Camerounaise",
+      navHome: "Accueil", navExco: "Exco", navMeetings: "Réunions",
+      navEvents: "Événements", navKids: "Section Enfants",
+      navGallery: "Galerie", navSupport: "Soutenez-nous",
+      navJoin: "Adhésion", heroTitle: "Association Culturelle Germano-Camerounaise",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
       excoTitle: "Membres du bureau exécutif & Ngoteh",
       meetingsTitle: "Réunions Mensuelles",
@@ -123,12 +108,6 @@ export default function App() {
     'assets/meeting-01.jpg', 'assets/meeting-02.jpg', 'assets/meeting-03.jpg', 
     'assets/meeting-04.jpg', 'assets/meeting-05.jpg', 'assets/meeting-06.jpg', 
     'assets/meeting-07.jpg', 'assets/meeting-08.jpg', 'assets/meeting-09.jpg', 'assets/meeting-10.jpg'
-  ];
-
-  const mainGalleryImages = [
-    'images/ngoteh-leadership.jpg', 'images/ngoteh-01.jpg', 'images/ngoteh-02.jpg', 
-    'images/ngoteh-03.jpg', 'images/ngoteh-04.jpg', 'images/ngoteh-05.jpg',
-    'images/ngoteh-06.jpg', 'images/ngoteh-07.jpg'
   ];
 
   // --- UTILS ---
@@ -179,7 +158,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* EVENTS SECTION: VIDEO + FLYER */}
+        {/* EVENTS SECTION */}
         <section id="events" style={{ marginBottom: '80px' }}>
           <h2 style={{ color: '#1b5e20', borderLeft: '8px solid #f9a825', paddingLeft: '15px' }}>{c.eventsTitle}</h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
@@ -188,7 +167,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* KIDS SECTION (ALL 12 VIDEOS) */}
+        {/* KIDS SECTION */}
         <section id="kids" style={{ marginBottom: '80px' }}>
           <h2 style={{ color: '#1b5e20', borderLeft: '8px solid #f9a825', paddingLeft: '15px' }}>{c.kidsTitle}</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
@@ -196,7 +175,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* JOIN MEMBERSHIP SECTION */}
+        {/* JOIN MEMBERSHIP */}
         <section id="join" style={{ marginBottom: '80px', padding: '40px', background: '#fff', borderRadius: '30px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
           <h2 style={{ color: '#1b5e20' }}>{c.registerTitle}</h2>
           <form onSubmit={handleRegister}>
@@ -209,12 +188,18 @@ export default function App() {
         {/* SUPPORT SECTION */}
         <section id="support" style={{ textAlign: 'center', padding: '60px', background: '#1b5e20', borderRadius: '40px', color: 'white' }}>
           <h2>{c.supportTitle}</h2>
-          <img src={getPath('images/qr-code.jpg')} alt="Donate" style={{ width: '200px', borderRadius: '10px' }} />
+          <img src={getPath('images/qr-code.jpg')} alt="Donate" style={{ width: '200px', borderRadius: '10px', marginBottom: '20px' }} />
           <p>{c.donateText}</p>
+          <div style={{ marginTop: '20px', padding: '20px', background: 'rgba(255,255,255,0.1)', borderRadius: '10px', display: 'inline-block', textAlign: 'left' }}>
+            <p style={{ margin: '5px 0' }}><strong>Account:</strong> Deutsch-Kamerunischer Kultur-</p>
+            <p style={{ margin: '5px 0' }}><strong>IBAN:</strong> DE27100900007218298006</p>
+            <p style={{ margin: '5px 0' }}><strong>BIC:</strong> BEVODEBBXXX</p>
+            <p style={{ margin: '5px 0' }}><strong>Bank:</strong> BERLINER VOLKSBANK</p>
+          </div>
         </section>
       </main>
 
-      {/* FOOTER - WITH CREDITS */}
+      {/* FOOTER */}
       <footer style={{ padding: '40px', borderTop: '1px solid #ccc', textAlign: 'center' }}>
         <p><strong>Engineer & Admin: Frank Fru</strong> | <a href="https://frankfru.com">frankfru.com</a></p>
         <p><a href="https://github.com/chifru19">GitHub</a> | <a href="https://www.linkedin.com/in/frankfru/">LinkedIn</a></p>
