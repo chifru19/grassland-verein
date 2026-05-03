@@ -88,7 +88,7 @@ export default function App() {
   // --- DATA REPOSITORIES ---
   const excoData = [
     { pos: "President", name: "Mr. CHENYE FREDERICK" },
-    { pos: "Ngoteh Representative", name: "Asongwe Onabit" },
+    { pos: "Ngoteh Representative", name: "Asongwe Onabid" },
     { pos: "Vice President", name: "Mr. NJAFUH BOBGA ROLAND" },
     { pos: "Secretary General", name: "DEACONESS THERESA EKPAKUEME" },
     { pos: "Vice Secretary General", name: "Ms. SEDONI ABAH" },
