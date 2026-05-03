@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 /**
  * App.js - Deutsch-Kamerunischer Kulturverein Grassland e.V.
- * Updated Version
+ * Full Production Version
  */
 
 export default function App() {
@@ -123,6 +123,12 @@ export default function App() {
     'assets/meeting-01.jpg', 'assets/meeting-02.jpg', 'assets/meeting-03.jpg', 
     'assets/meeting-04.jpg', 'assets/meeting-05.jpg', 'assets/meeting-06.jpg', 
     'assets/meeting-07.jpg', 'assets/meeting-08.jpg', 'assets/meeting-09.jpg', 'assets/meeting-10.jpg'
+  ];
+
+  const mainGalleryImages = [
+    'images/ngoteh-leadership.jpg', 'images/ngoteh-01.jpg', 'images/ngoteh-02.jpg', 
+    'images/ngoteh-03.jpg', 'images/ngoteh-04.jpg', 'images/ngoteh-05.jpg',
+    'images/ngoteh-06.jpg', 'images/ngoteh-07.jpg'
   ];
 
   // --- UTILS ---
