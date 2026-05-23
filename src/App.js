@@ -2,26 +2,22 @@ import React, { useState } from 'react';
 
 /**
  * App.js - German-Grassland e.V. Berlin
- * Full Production Version
+ * Restored Full Version with Ngoteh Organ Section
  */
 
 export default function App() {
-  const [formData, setFormData] = useState({ 
-    name: '', 
-    email: '', 
-    membershipType: 'standard' 
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', membershipType: 'standard' });
   const [lang, setLang] = useState('de');
 
-  // --- TRILINGUAL CONTENT OBJECT ---
   const t = {
     de: {
-      navHome: "Home", navExco: "Exco", navMeetings: "Treffen",
+      navHome: "Home", navExco: "Exco", navNgoteh: "Ngoteh", navMeetings: "Treffen",
       navEvents: "Veranstaltungen", navKids: "Kinderbereich",
       navGallery: "Galerie", navSupport: "Unterstützung",
       navJoin: "Mitgliedschaft", heroTitle: "German-Grassland e.V. Berlin",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
       excoTitle: "Vorstandsmitglieder & Ngoteh",
+      ngotehTitle: "Ngoteh",
       meetingsTitle: "Monatliche Treffen",
       meetingsDesc: "Jeden zweiten Samstag im Monat – Kommen Sie vorbei für den gemeinschaftlichen Dialog.",
       eventsTitle: "Kommende Veranstaltungen",
@@ -34,16 +30,16 @@ export default function App() {
       registerTitle: "Jetzt Mitglied werden",
       registerBtn: "Antrag Absenden",
       namePlaceholder: "Vollständiger Name",
-      emailPlaceholder: "E-Mail-Adresse",
-      admin: "Website Admin"
+      emailPlaceholder: "E-Mail-Adresse"
     },
     en: {
-      navHome: "Home", navExco: "Exco", navMeetings: "Meetings",
+      navHome: "Home", navExco: "Exco", navNgoteh: "Ngoteh", navMeetings: "Meetings",
       navEvents: "Events", navKids: "Kids Section",
       navGallery: "Gallery", navSupport: "Support Us",
       navJoin: "Membership", heroTitle: "German-Grassland e.V. Berlin",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
       excoTitle: "Executive Committee & Ngoteh",
+      ngotehTitle: "Ngoteh",
       meetingsTitle: "Monthly Meeting Sessions",
       meetingsDesc: "Every Second Saturday of the Month – Join us for our community dialogue.",
       eventsTitle: "Upcoming Events",
@@ -56,16 +52,16 @@ export default function App() {
       registerTitle: "Become a Member",
       registerBtn: "Submit Application",
       namePlaceholder: "Full Name",
-      emailPlaceholder: "Email Address",
-      admin: "Website Admin"
+      emailPlaceholder: "Email Address"
     },
     fr: {
-      navHome: "Accueil", navExco: "Exco", navMeetings: "Réunions",
+      navHome: "Accueil", navExco: "Exco", navNgoteh: "Ngoteh", navMeetings: "Réunions",
       navEvents: "Événements", navKids: "Section Enfants",
       navGallery: "Galerie", navSupport: "Soutenez-nous",
       navJoin: "Adhésion", heroTitle: "German-Grassland e.V. Berlin",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
       excoTitle: "Membres du bureau exécutif & Ngoteh",
+      ngotehTitle: "Ngoteh",
       meetingsTitle: "Réunions Mensuelles",
       meetingsDesc: "Chaque deuxième samedi du mois – Rejoignez-nous pour le dialogue communautaire.",
       eventsTitle: "Événements à Venir",
@@ -78,14 +74,12 @@ export default function App() {
       registerTitle: "Devenir Membre",
       registerBtn: "S'inscrire",
       namePlaceholder: "Nom complet",
-      emailPlaceholder: "Adresse e-mail",
-      admin: "Admin du site"
+      emailPlaceholder: "Adresse e-mail"
     }
   };
 
   const c = t[lang];
 
-  // --- DATA REPOSITORIES ---
   const excoData = [
     { pos: "President", name: "Mr. CHENYE FREDERICK" },
     { pos: "Ngoteh Representative", name: "Asongwe Onabid" },
@@ -110,38 +104,26 @@ export default function App() {
     'assets/meeting-07.jpg', 'assets/meeting-08.jpg', 'assets/meeting-09.jpg', 'assets/meeting-10.jpg'
   ];
 
-  // --- UTILS ---
   const getPath = (path) => `${process.env.PUBLIC_URL}/${path}`;
-  const scrollTo = (id) => { 
-    const el = document.getElementById(id); 
-    if(el) window.scrollTo({top: el.offsetTop - 80, behavior: 'smooth'}); 
-  };
+  const scrollTo = (id) => { const el = document.getElementById(id); if(el) window.scrollTo({top: el.offsetTop - 80, behavior: 'smooth'}); };
   const handleRegister = (e) => { e.preventDefault(); alert("Application Sent!"); };
 
   return (
     <div style={{ backgroundColor: '#fdfbf7', fontFamily: 'Segoe UI, sans-serif' }}>
-      
-      {/* HEADER SECTION */}
       <header id="home" style={{ textAlign: 'center', color: 'white', borderBottom: '6px solid #f9a825', padding: '80px 20px', background: `linear-gradient(rgba(27, 94, 32, 0.85), rgba(27, 94, 32, 0.85)), url('${getPath('images/ngoteh-event-01.jpg')}')`, backgroundSize: 'cover' }}>
         <img src={getPath('images/verein-logo.png')} alt="Logo" style={{ height: '180px', borderRadius: '15px', backgroundColor: 'white', padding: '15px' }} />
         <h1>{c.heroTitle}</h1>
         <p style={{ color: '#f9a825', fontWeight: 'bold' }}>{c.heroSubtitle}</p>
       </header>
 
-      {/* NAVIGATION SECTION */}
       <nav style={{ background: '#1b5e20', padding: '15px', position: 'sticky', top: 0, zIndex: 1000, display: 'flex', justifyContent: 'center', gap: '15px', color: 'white', flexWrap: 'wrap' }}>
-        {['home','exco','meetings','events','kids','gallery','join','support'].map(i => (
+        {['home','exco','ngoteh','meetings','events','kids','gallery','join','support'].map(i => (
           <span key={i} onClick={() => scrollTo(i)} style={{cursor:'pointer', fontWeight:'bold'}}>{i.toUpperCase()}</span>
         ))}
-        <button onClick={() => setLang('de')}>DE</button>
-        <button onClick={() => setLang('en')}>EN</button>
-        <button onClick={() => setLang('fr')}>FR</button>
+        <button onClick={() => setLang('de')}>DE</button><button onClick={() => setLang('en')}>EN</button><button onClick={() => setLang('fr')}>FR</button>
       </nav>
 
-      {/* MAIN CONTENT AREA */}
       <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
-        
-        {/* EXCO SECTION */}
         <section id="exco" style={{ marginBottom: '80px', padding: '40px', background: '#e8f5e9', borderRadius: '30px' }}>
           <h2 style={{ color: '#1b5e20', borderBottom: '3px solid #f9a825', display: 'inline-block', marginBottom: '30px' }}>{c.excoTitle}</h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
@@ -149,7 +131,13 @@ export default function App() {
           </div>
         </section>
 
-        {/* MEETINGS GALLERY */}
+        <section id="ngoteh" style={{ marginBottom: '80px' }}>
+          <h2 style={{ color: '#1b5e20', borderLeft: '8px solid #f9a825', paddingLeft: '15px' }}>{c.ngotehTitle}</h2>
+          <video controls style={{ width: '100%', borderRadius: '20px', background: '#000' }}>
+            <source src={getPath('videos/ngoteh-video.mp4')} type="video/mp4" />
+          </video>
+        </section>
+
         <section id="meetings" style={{ marginBottom: '80px' }}>
           <h2 style={{ color: '#1b5e20', borderLeft: '8px solid #f9a825', paddingLeft: '15px' }}>{c.meetingsTitle}</h2>
           <div style={{ background: '#fff', padding: '40px', borderRadius: '25px', marginBottom: '30px' }}>{c.meetingsDesc}</div>
@@ -158,7 +146,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* EVENTS SECTION */}
         <section id="events" style={{ marginBottom: '80px' }}>
           <h2 style={{ color: '#1b5e20', borderLeft: '8px solid #f9a825', paddingLeft: '15px' }}>{c.eventsTitle}</h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
@@ -167,7 +154,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* KIDS SECTION */}
         <section id="kids" style={{ marginBottom: '80px' }}>
           <h2 style={{ color: '#1b5e20', borderLeft: '8px solid #f9a825', paddingLeft: '15px' }}>{c.kidsTitle}</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
@@ -175,7 +161,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* JOIN SECTION */}
         <section id="join" style={{ marginBottom: '80px', padding: '40px', background: '#fff', borderRadius: '30px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
           <h2 style={{ color: '#1b5e20' }}>{c.registerTitle}</h2>
           <form onSubmit={handleRegister}>
@@ -185,21 +170,13 @@ export default function App() {
           </form>
         </section>
 
-        {/* SUPPORT SECTION */}
         <section id="support" style={{ textAlign: 'center', padding: '60px', background: '#1b5e20', borderRadius: '40px', color: 'white' }}>
           <h2>{c.supportTitle}</h2>
           <img src={getPath('images/qr-code.jpg')} alt="Donate" style={{ width: '200px', borderRadius: '10px', marginBottom: '20px' }} />
           <p>{c.donateText}</p>
-          <div style={{ marginTop: '20px', padding: '20px', background: 'rgba(255,255,255,0.1)', borderRadius: '10px', display: 'inline-block', textAlign: 'left' }}>
-            <p style={{ margin: '5px 0' }}><strong>Account:</strong> Deutsch-Kamerunischer Kultur-</p>
-            <p style={{ margin: '5px 0' }}><strong>IBAN:</strong> DE27100900007218298006</p>
-            <p style={{ margin: '5px 0' }}><strong>BIC:</strong> BEVODEBBXXX</p>
-            <p style={{ margin: '5px 0' }}><strong>Bank:</strong> BERLINER VOLKSBANK</p>
-          </div>
         </section>
       </main>
 
-      {/* FOOTER */}
       <footer style={{ padding: '40px', borderTop: '1px solid #ccc', textAlign: 'center' }}>
         <p><strong>Engineer & Admin: Frank Fru</strong> | <a href="https://frankfru.com">frankfru.com</a></p>
         <p><a href="https://github.com/chifru19">GitHub</a> | <a href="https://www.linkedin.com/in/frankfru/">LinkedIn</a></p>
