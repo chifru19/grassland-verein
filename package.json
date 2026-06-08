@@ -1,6 +1,8 @@
 {
   "name": "grassland-verein",
   "version": "0.1.0",
+  "homepage": "https://chifru19.github.io/grassland-verein/",
+  "homepage": "https://chifru19.github.io/grassland-verein/",
   "private": true,
   "homepage": ".",
   "author": {
@@ -24,6 +26,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
