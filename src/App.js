@@ -6,7 +6,6 @@ import React, { useState } from 'react';
  */
 
 export default function App() {
-  const [formData, setFormData] = useState({ name: '', email: '', membershipType: 'standard' });
   const [lang, setLang] = useState('de');
 
   const t = {
