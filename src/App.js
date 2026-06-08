@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 /**
  * App.js - German-Grassland e.V. Berlin
- * Restored Full Version with Ngoteh Organ Section
+ * Full Version with FC Grassland Section
  */
 
 export default function App() {
@@ -12,7 +12,7 @@ export default function App() {
   const t = {
     de: {
       navHome: "Home", navExco: "Exco", navNgoteh: "Ngoteh", navMeetings: "Treffen",
-      navEvents: "Veranstaltungen", navKids: "Kinderbereich",
+      navEvents: "Veranstaltungen", navKids: "Kinderbereich", navFC: "FC Grassland",
       navGallery: "Galerie", navSupport: "Unterstützung",
       navJoin: "Mitgliedschaft", heroTitle: "German-Grassland e.V. Berlin",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
@@ -24,6 +24,7 @@ export default function App() {
       eventsDesc: "Besuchen Sie unsere nächste Zusammenkunft.",
       kidsTitle: "Kinder & Jugend",
       kidsDesc: "Bewahrung unseres Erbes für die nächste Generation.",
+      fcTitle: "FC Grassland",
       galleryTitle: "General Event Gallery & Ngoteh",
       supportTitle: "Unterstützen Sie unsere Mission",
       donateText: "ZUM SPENDEN SCANNEN",
@@ -34,7 +35,7 @@ export default function App() {
     },
     en: {
       navHome: "Home", navExco: "Exco", navNgoteh: "Ngoteh", navMeetings: "Meetings",
-      navEvents: "Events", navKids: "Kids Section",
+      navEvents: "Events", navKids: "Kids Section", navFC: "FC Grassland",
       navGallery: "Gallery", navSupport: "Support Us",
       navJoin: "Membership", heroTitle: "German-Grassland e.V. Berlin",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
@@ -46,6 +47,7 @@ export default function App() {
       eventsDesc: "Join us for our upcoming community gathering.",
       kidsTitle: "Kids & Youth Section",
       kidsDesc: "Preserving our heritage for the next generation.",
+      fcTitle: "FC Grassland",
       galleryTitle: "General Event Gallery & Ngoteh",
       supportTitle: "Support Our Mission",
       donateText: "SCAN TO DONATE",
@@ -56,7 +58,7 @@ export default function App() {
     },
     fr: {
       navHome: "Accueil", navExco: "Exco", navNgoteh: "Ngoteh", navMeetings: "Réunions",
-      navEvents: "Événements", navKids: "Section Enfants",
+      navEvents: "Événements", navKids: "Section Enfants", navFC: "FC Grassland",
       navGallery: "Galerie", navSupport: "Soutenez-nous",
       navJoin: "Adhésion", heroTitle: "German-Grassland e.V. Berlin",
       heroSubtitle: "Sprengelstr. 15, 13353 Berlin",
@@ -68,6 +70,7 @@ export default function App() {
       eventsDesc: "Rejoignez-nous pour notre prochain rassemblement.",
       kidsTitle: "Section Enfants et Jeunes",
       kidsDesc: "Préserver notre héritage pour la prochaine génération.",
+      fcTitle: "FC Grassland",
       galleryTitle: "Galerie Générale des Événements & Ngoteh",
       supportTitle: "Soutenez notre Mission",
       donateText: "SCANNEZ POUR DONNER",
@@ -104,6 +107,8 @@ export default function App() {
     'assets/meeting-07.jpg', 'assets/meeting-08.jpg', 'assets/meeting-09.jpg', 'assets/meeting-10.jpg'
   ];
 
+  const fcGrasslandImages = Array.from({ length: 10 }, (_, i) => `assets/fc-grassland/fc-grassland-${i + 1}.jpg`);
+
   const getPath = (path) => `${process.env.PUBLIC_URL}/${path}`;
   const scrollTo = (id) => { const el = document.getElementById(id); if(el) window.scrollTo({top: el.offsetTop - 80, behavior: 'smooth'}); };
   const handleRegister = (e) => { e.preventDefault(); alert("Application Sent!"); };
@@ -117,7 +122,7 @@ export default function App() {
       </header>
 
       <nav style={{ background: '#1b5e20', padding: '15px', position: 'sticky', top: 0, zIndex: 1000, display: 'flex', justifyContent: 'center', gap: '15px', color: 'white', flexWrap: 'wrap' }}>
-        {['home','exco','ngoteh','meetings','events','kids','gallery','join','support'].map(i => (
+        {['home','exco','ngoteh','meetings','events','kids','fc-grassland','gallery','join','support'].map(i => (
           <span key={i} onClick={() => scrollTo(i)} style={{cursor:'pointer', fontWeight:'bold'}}>{i.toUpperCase()}</span>
         ))}
         <button onClick={() => setLang('de')}>DE</button><button onClick={() => setLang('en')}>EN</button><button onClick={() => setLang('fr')}>FR</button>
@@ -159,6 +164,18 @@ export default function App() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
             {kidsVideos.map((src, i) => <video key={i} src={getPath(src)} controls style={{ width: '100%', borderRadius: '10px', height: '220px' }} />)}
           </div>
+        </section>
+
+        {/* FC Grassland Section Added */}
+        <section id="fc-grassland" style={{ marginBottom: '80px', padding: '40px', background: '#e8f5e9', borderRadius: '30px' }}>
+          <h2 style={{ color: '#1b5e20', borderLeft: '8px solid #f9a825', paddingLeft: '15px' }}>{c.fcTitle}</h2>
+          <p>FC Grassland community sports and engagement.</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px', marginBottom: '30px' }}>
+            {fcGrasslandImages.map((src, i) => <img key={i} src={getPath(src)} alt={`FC Grassland ${i + 1}`} style={{ width: '100%', borderRadius: '15px', height: '150px', objectFit: 'cover' }} />)}
+          </div>
+          <video controls style={{ width: '100%', borderRadius: '20px', background: '#000' }}>
+            <source src={getPath('videos/fc-grassland-highlight.mp4')} type="video/mp4" />
+          </video>
         </section>
 
         <section id="join" style={{ marginBottom: '80px', padding: '40px', background: '#fff', borderRadius: '30px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
